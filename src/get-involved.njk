@@ -1,0 +1,74 @@
+---
+layout: base.njk
+permalink: /get-involved/
+title: "Get Involved"
+description: "Internships and mentorship at The Unknown Now: what the program is, what interns do, and how to apply."
+heroEyebrow: "Get Involved"
+heroTitle: "Learn by doing the work."
+heroLede: "Our internship program isn't observation from the sidelines. Interns are mentored directly by our founders — and help run the organization once they're onboarded."
+howKicker: "How it works"
+howHeading: "The mentorship model"
+howBody: "Each cohort works closely with our two founders, learning the org's research, writing, and operations processes firsthand. As interns ramp up, they take on real ownership — from co-authoring literature reviews to helping shape new initiatives."
+rolesKicker: "What interns do"
+rolesHeading: "Current roles"
+roles:
+  - title: "Research & writing"
+    body: "[Placeholder] Co-author literature reviews for the Unknown Brain series, from source research through final draft."
+  - title: "Web & design"
+    body: "[Placeholder] Design and build out the organization's website and visual identity."
+  - title: "Outreach & partnerships"
+    body: "[Placeholder] Help identify and reach out to journals, labs, or organizations for future collaboration."
+  - title: "Operations"
+    body: "[Placeholder] Support the day-to-day running of the organization as the next cohort comes in."
+applyKicker: "Apply"
+applyHeading: "How to join"
+applyBody: "[Placeholder — replace with real process.] We review applications on a rolling basis. Reach out with a short note on why you're interested and any relevant experience — no polished portfolio required."
+---
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">{{ heroEyebrow }}</p>
+    <h1>{{ heroTitle }}</h1>
+    <p class="lede">{{ heroLede }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/contact/">Apply now</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ howKicker }}</p>
+      <h2>{{ howHeading }}</h2>
+    </div>
+    <p>{{ howBody }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ rolesKicker }}</p>
+      <h2>{{ rolesHeading }}</h2>
+    </div>
+    <div class="card-grid">
+      {% for r in roles %}
+      <div class="card">
+        <h3>{{ r.title }}</h3>
+        <p>{{ r.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ applyKicker }}</p>
+      <h2>{{ applyHeading }}</h2>
+    </div>
+    <p>{{ applyBody }}</p>
+    <a class="btn btn-secondary" href="/contact/">Get in touch →</a>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "tag": "live",
+      "tagLabel": "Appeared in",
+      "name": "[Stanford Journal Name]",
+      "body": "[Placeholder] Our piece \"[Article Title]\" appeared in [Journal Name], a Stanford-affiliated publication.",
+      "link": "#",
+      "linkText": "Read it"
+    },
+    {
+      "tag": "live",
+      "tagLabel": "Archived by",
+      "name": "Research Archive of Rising Scholars",
+      "body": "[Placeholder] Our work is preserved in this preprint archive for early-career researchers.",
+      "link": "#",
+      "linkText": "View entry"
+    },
+    {
+      "tag": "live",
+      "tagLabel": "Appeared in",
+      "name": "AstraStem",
+      "body": "[Placeholder] Describe the actual relationship here — e.g. \"Our article was featured on AstraStem's blog\" — rather than calling it a partnership.",
+      "link": "#",
+      "linkText": "Read it"
+    }
+  ]
+}

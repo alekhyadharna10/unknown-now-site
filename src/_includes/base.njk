@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} — The Unknown Now</title>
+<meta name="description" content="{{ description }}">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="/">The Unknown<span> Now</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
+      <a href="/research/" {% if page.url == "/research/" %}aria-current="page"{% endif %}>Research</a>
+      <a href="/get-involved/" {% if page.url == "/get-involved/" %}aria-current="page"{% endif %}>Get Involved</a>
+      <a href="/whats-next/" {% if page.url == "/whats-next/" %}aria-current="page"{% endif %}>What's Next</a>
+      <a href="/published-work/" {% if page.url == "/published-work/" %}aria-current="page"{% endif %}>Published Work</a>
+      <a href="/contact/" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  {{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 The Unknown Now</p>
+    <div class="footer-links">
+      <a href="/contact/">Contact</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

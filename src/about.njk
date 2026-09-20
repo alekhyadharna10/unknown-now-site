@@ -1,0 +1,56 @@
+---
+layout: base.njk
+permalink: /about/
+title: "About"
+description: "The mission, origin, and founders behind The Unknown Now."
+heroEyebrow: "About"
+heroTitle: "Why we exist"
+heroLede: "The Unknown Now started with a simple frustration: good neuroscience research rarely reaches the people it's actually about. We built an organization to close that gap."
+missionKicker: "Our mission"
+missionHeading: "Science communication first, neuroscience as our lens"
+missionBody: "[Placeholder — replace with the org's own words.] We believe credible science shouldn't require a research background to understand. The Unknown Now exists to translate neuroscience and psychology research — the kind that usually stays locked in journals — into writing that's accurate, specific, and genuinely readable. Everything we do, from our published literature reviews to our internship program, is an expression of that one goal."
+missionBody2: "We take a foundation-first approach: we'd rather do a small number of things well and honestly than overstate what we've built. If something's still in progress, we say so."
+foundersKicker: "Founders"
+foundersHeading: "Who runs this"
+founders:
+  - name: "[Founder Name]"
+    bio: "[One or two sentences on their background and role — replace with real bio.]"
+  - name: "[Founder Name]"
+    bio: "[One or two sentences on their background and role — replace with real bio.]"
+---
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">{{ heroEyebrow }}</p>
+    <h1>{{ heroTitle }}</h1>
+    <p class="lede">{{ heroLede }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ missionKicker }}</p>
+      <h2>{{ missionHeading }}</h2>
+    </div>
+    <p>{{ missionBody }}</p>
+    <p>{{ missionBody2 }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ foundersKicker }}</p>
+      <h2>{{ foundersHeading }}</h2>
+    </div>
+    <div class="founders">
+      {% for f in founders %}
+      <div class="card">
+        <h3>{{ f.name }}</h3>
+        <p>{{ f.bio }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p style="margin-top:1.5rem;">Each new cohort of interns is mentored directly by the two of us, and takes on real responsibility running the organization as they grow into it. <a href="/get-involved/">See the internship program →</a></p>
+  </div>
+</section>

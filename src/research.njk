@@ -1,0 +1,33 @@
+---
+layout: base.njk
+permalink: /research/
+title: "Research"
+description: "The Unknown Brain series: literature reviews and original research on neuroscience and psychology, from The Unknown Now."
+heroEyebrow: "The Unknown Brain"
+heroTitle: "Our research archive"
+heroLede: "Literature reviews and original research on neuroscience and psychology topics we find genuinely worth writing about — newest first."
+---
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">{{ heroEyebrow }}</p>
+    <h1>{{ heroTitle }}</h1>
+    <p class="lede">{{ heroLede }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="article-list">
+      {% for article in collections.research | reverse %}
+      <article class="article-row">
+        <div class="article-meta">{{ article.data.displayDate }}</div>
+        <div>
+          <h3><a href="{{ article.url }}">{{ article.data.title }}</a></h3>
+          <p>{{ article.data.summary }}</p>
+          <a class="read-link" href="{{ article.url }}">Read the full piece →</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

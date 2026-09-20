@@ -1,0 +1,31 @@
+---
+layout: base.njk
+permalink: /published-work/
+title: "Published Work"
+description: "Where The Unknown Now's work has appeared and been archived."
+heroEyebrow: "Published Work"
+heroTitle: "Where our work has appeared."
+heroLede: "These are real publication credits — our writing has appeared in or been archived by the outlets below. We're specific about what each relationship actually is."
+---
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">{{ heroEyebrow }}</p>
+    <h1>{{ heroTitle }}</h1>
+    <p class="lede">{{ heroLede }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="card-grid">
+      {% for item in publishedWork.items %}
+      <div class="card">
+        <span class="tag tag-{{ item.tag }}">{{ item.tagLabel }}</span>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.body }} <a href="{{ item.link }}">{{ item.linkText }} →</a></p>
+      </div>
+      {% endfor %}
+    </div>
+    <p style="margin-top:2rem;">Have a publication or platform interested in featuring our research? <a href="/contact/">Get in touch</a>.</p>
+  </div>
+</section>

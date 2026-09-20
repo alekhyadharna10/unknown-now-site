@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+<div class="container article-page" style="padding-top: 3rem; padding-bottom: 4rem;">
+  <header class="article-head">
+    <p><a href="/research/">← Back to Research</a></p>
+    <span class="article-meta">Unknown Brain series · {{ displayDate }} · {{ author }}</span>
+    <h1>{{ title }}</h1>
+    <p class="lede" style="font-family: var(--serif); color: var(--moss); font-size: 1.15rem;">{{ summary }}</p>
+  </header>
+
+  <div class="article-body">
+    {{ content | safe }}
+  </div>
+</div>

@@ -1,0 +1,59 @@
+---
+layout: base.njk
+permalink: /
+title: "The Unknown Now — Science Communication, Grounded in Neuroscience"
+description: "The Unknown Now is a student-run organization making credible neuroscience and psychology research understandable to a wider audience."
+heroEyebrow: "The Unknown Now"
+heroTitle: "Making real science make sense."
+heroLede: "We're a student-run organization that translates credible neuroscience and psychology research into writing people actually want to read — without dumbing it down."
+quote: "Science communication is the organizing idea. Neuroscience is the lens we bring to it."
+pillars:
+  - title: "Research & the Unknown Brain series"
+    body: "Literature reviews and original research on neuroscience and psychology topics we find genuinely worth writing about."
+    link: "/research/"
+    linkText: "Browse the archive"
+  - title: "Mentorship & internships"
+    body: "An incoming cohort of interns is mentored directly by our founders — and helps run the organization once onboarded."
+    link: "/get-involved/"
+    linkText: "See how to apply"
+  - title: "What we're building next"
+    body: "Public initiatives currently in development, including a sensory audit concept — honestly labeled as not yet live."
+    link: "/whats-next/"
+    linkText: "Read the plan"
+---
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">{{ heroEyebrow }}</p>
+    <h1>{{ heroTitle }}</h1>
+    <p class="lede">{{ heroLede }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/research/">Read our research</a>
+      <a class="btn btn-secondary" href="/get-involved/">Get involved</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">What we do</p>
+      <h2>Three ways we work</h2>
+    </div>
+    <div class="pillars">
+      {% for p in pillars %}
+      <div class="pillar">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.body }}</p>
+        <a href="{{ p.link }}">{{ p.linkText }} →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <blockquote>{{ quote }}</blockquote>
+    <p><a href="/about/">Learn more about our mission and how we work →</a></p>
+  </div>
+</section>

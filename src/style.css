@@ -1,0 +1,315 @@
+/* The Unknown Now — shared stylesheet */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --parchment: #F2ECDA;
+  --cream: #FAF7EE;
+  --ink: #2B2520;
+  --moss: #3E4B33;
+  --moss-deep: #2A331F;
+  --copper: #B15B2C;
+  --sage: #8B9A7C;
+  --sage-line: #D9D3BE;
+
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: var(--copper);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  color: var(--moss-deep);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  font-weight: 600;
+}
+
+h1 { font-size: clamp(2.1rem, 4vw, 3.2rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1.1em; max-width: 68ch; }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--sage-line);
+  background: var(--parchment);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--moss-deep);
+  letter-spacing: 0.01em;
+}
+.wordmark span { color: var(--copper); }
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--moss-deep);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--copper); }
+.site-nav a[aria-current="page"] { color: var(--copper); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 4.5rem 0 3.5rem;
+  border-bottom: 1px solid var(--sage-line);
+}
+
+.hero .eyebrow {
+  font-family: var(--sans);
+  color: var(--sage);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  max-width: 16ch;
+}
+
+.hero .lede {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--moss);
+  max-width: 42ch;
+  margin-top: 1.2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.8rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--copper);
+  color: var(--cream);
+}
+.btn-primary:hover { background: #9a4c23; text-decoration: none; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--moss-deep);
+  border-color: var(--moss-deep);
+}
+.btn-secondary:hover { background: var(--moss-deep); color: var(--cream); text-decoration: none; }
+
+/* ---------- Sections ---------- */
+
+section { padding: 3.5rem 0; }
+section + section { border-top: 1px solid var(--sage-line); }
+
+.section-head {
+  margin-bottom: 2rem;
+}
+
+.section-head .kicker {
+  color: var(--sage);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- Pillar / feature grid ---------- */
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 760px) {
+  .pillars { grid-template-columns: 1fr; }
+}
+
+.pillar h3 { margin-bottom: 0.5rem; }
+.pillar p { font-size: 0.98rem; }
+.pillar a { font-weight: 600; }
+
+/* ---------- Article / research list ---------- */
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1.5rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--sage-line);
+}
+
+.article-row:first-child { padding-top: 0; }
+
+@media (max-width: 600px) {
+  .article-row { grid-template-columns: 1fr; gap: 0.4rem; }
+}
+
+.article-meta {
+  color: var(--sage);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding-top: 0.2rem;
+}
+
+.article-row h3 { margin-bottom: 0.35rem; }
+.article-row p { margin-bottom: 0.5rem; font-size: 0.97rem; }
+.article-row a.read-link { font-weight: 600; font-size: 0.92rem; }
+
+/* ---------- Status tag (real vs. in development) ---------- */
+
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  margin-bottom: 0.6rem;
+}
+.tag-live { background: #DCE5D3; color: var(--moss-deep); }
+.tag-progress { background: #F1E0CB; color: #7A4A1E; }
+
+/* ---------- Cards (published work, roles) ---------- */
+
+.card {
+  background: var(--cream);
+  border: 1px solid var(--sage-line);
+  padding: 1.6rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Pull quote ---------- */
+
+blockquote {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  color: var(--moss);
+  border-left: 3px solid var(--copper);
+  padding-left: 1.3rem;
+  margin: 1.8rem 0;
+  max-width: 50ch;
+}
+
+/* ---------- Founders ---------- */
+
+.founders {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 700px) { .founders { grid-template-columns: 1fr; } }
+
+/* ---------- Article page (single research piece) ---------- */
+
+.article-page header.article-head {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--sage-line);
+  margin-bottom: 2rem;
+}
+.article-head .article-meta { margin-bottom: 0.8rem; display: block; }
+.article-body p { font-size: 1.02rem; }
+.article-body h2 { margin-top: 1.8em; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--moss-deep);
+  color: var(--cream);
+  padding: 2.5rem 0;
+  margin-top: 2rem;
+}
+.site-footer a { color: var(--cream); }
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.92rem;
+}
+.footer-links { display: flex; gap: 1.5rem; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
