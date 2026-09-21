@@ -14,8 +14,10 @@ foundersKicker: "Founders"
 foundersHeading: "Who runs this"
 founders:
   - name: "[Founder Name]"
+    photo: ""
     bio: "[One or two sentences on their background and role — replace with real bio.]"
   - name: "[Founder Name]"
+    photo: ""
     bio: "[One or two sentences on their background and role — replace with real bio.]"
 ---
 <section class="hero">
@@ -46,6 +48,7 @@ founders:
     <div class="founders">
       {% for f in founders %}
       <div class="card">
+        {% if f.photo %}<img class="founder-photo" src="{{ f.photo }}" alt="{{ f.name }}">{% endif %}
         <h3>{{ f.name }}</h3>
         <p>{{ f.bio }}</p>
       </div>

@@ -7,6 +7,7 @@ layout: base.njk
     <span class="article-meta">Unknown Brain series · {{ displayDate }} · {{ author }}</span>
     <h1>{{ title }}</h1>
     <p class="lede" style="font-family: var(--serif); color: var(--moss); font-size: 1.15rem;">{{ summary }}</p>
+    {% if image %}<img class="article-image" src="{{ image }}" alt="{{ title }}">{% endif %}
   </header>
 
   <div class="article-body">

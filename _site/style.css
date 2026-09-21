@@ -81,6 +81,8 @@ p { margin: 0 0 1.1em; max-width: 68ch; }
 }
 
 .wordmark {
+  display: flex;
+  align-items: center;
   font-family: var(--serif);
   font-weight: 700;
   font-size: 1.15rem;
@@ -88,6 +90,12 @@ p { margin: 0 0 1.1em; max-width: 68ch; }
   letter-spacing: 0.01em;
 }
 .wordmark span { color: var(--copper); }
+
+.logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
 
 .site-nav {
   display: flex;
@@ -279,6 +287,22 @@ blockquote {
   gap: 2rem;
 }
 @media (max-width: 700px) { .founders { grid-template-columns: 1fr; } }
+
+.founder-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 1px solid var(--sage-line);
+}
+
+.article-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  margin-top: 1.5rem;
+  border: 1px solid var(--sage-line);
+}
 
 /* ---------- Article page (single research piece) ---------- */
 

@@ -11,7 +11,13 @@
 
 <header class="site-header">
   <div class="container">
-    <a class="wordmark" href="/">The Unknown<span>Now</span></a>
+    <a class="wordmark" href="/">
+      {% if site.logo %}
+      <img class="logo-img" src="{{ site.logo }}" alt="{{ site.logoAlt }}">
+      {% else %}
+      The Unknown<span>Now</span>
+      {% endif %}
+    </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
       <a href="/research/" {% if page.url == "/research/" %}aria-current="page"{% endif %}>Research</a>

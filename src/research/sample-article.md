@@ -4,6 +4,7 @@ title: "[Sample] How Sleep Deprivation Reshapes Decision-Making"
 displayDate: "January 2027"
 author: "[Author Name]"
 summary: "This is a placeholder article demonstrating the template every Unknown Brain piece should follow. Replace this text with the real literature review."
+image: ""
 tags: research
 permalink: /research/sample-article/
 ---

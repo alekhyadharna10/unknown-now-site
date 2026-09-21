@@ -11,6 +11,13 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      - name: "site-settings"
+        label: "Site Settings (Logo)"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Logo", name: "logo", widget: "image", required: false, hint: "Upload to replace the text logo in the header. Leave empty to keep the text version." }
+          - { label: "Logo Alt Text", name: "logoAlt", widget: "string" }
+
       - name: "home"
         label: "Home Page"
         file: "src/index.njk"
@@ -42,6 +49,7 @@ collections:
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
               - { label: "Bio", name: "bio", widget: "text" }
 
       - name: "get-involved"
@@ -110,6 +118,7 @@ collections:
       - { label: "Date", name: "displayDate", widget: "string", hint: "e.g. January 2027" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "article.njk" }
       - { label: "Tags", name: "tags", widget: "hidden", default: "research" }
