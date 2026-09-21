@@ -14,9 +14,8 @@
     <a class="wordmark" href="/">
       {% if site.logo %}
       <img class="logo-img" src="{{ site.logo }}" alt="{{ site.logoAlt }}">
-      {% else %}
-      The Unknown<span>Now</span>
       {% endif %}
+      <span class="wordmark-text">The Unknown<span class="accent">Now</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
