@@ -1,7 +1,6 @@
 {
   "email": "hello@theunknownnow.org",
   "social": [
-    { "name": "Instagram", "link": "#" },
-    { "name": "LinkedIn", "link": "#" }
+    { "name": "Instagram", "link": "https://www.instagram.com/the.unknownnow/" }
   ]
 }
