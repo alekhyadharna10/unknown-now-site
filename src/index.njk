@@ -21,15 +21,22 @@ pillars:
     link: "/whats-next/"
     linkText: "Read the plan"
 ---
-<section class="hero">
-  <div class="container">
-    <p class="eyebrow">{{ heroEyebrow }}</p>
-    <h1>{{ heroTitle }}</h1>
-    <p class="lede">{{ heroLede }}</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="/research/">Read our research</a>
-      <a class="btn btn-secondary" href="/get-involved/">Get involved</a>
+{% set latest = collections.research | reverse | first %}
+<section class="hero-home">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="plate-label fade" style="--d:0">{{ heroEyebrow }}</p>
+      <h1 class="hero-title">{{ heroTitle }}</h1>
+      <p class="lede fade" style="--d:450">{{ heroLede }}</p>
+      <div class="hero-actions fade" style="--d:600">
+        <a class="btn btn-primary" href="/research/">Read our research</a>
+        <a class="btn btn-secondary" href="/get-involved/">Get involved</a>
+      </div>
+      {% if latest %}
+      <p class="hero-latest fade" style="--d:750"><span>Newest in the archive</span> <a href="{{ latest.url }}">{{ latest.data.title }}</a> <em>{{ latest.data.displayDate }}</em></p>
+      {% endif %}
     </div>
+    {% include "hero-plate.njk" %}
   </div>
 </section>
 

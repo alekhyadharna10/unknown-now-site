@@ -1,16 +1,16 @@
 /* The UnknownNow — shared stylesheet */
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  --parchment: #F2ECDA;
-  --cream: #FAF7EE;
-  --ink: #2B2520;
-  --moss: #3E4B33;
-  --moss-deep: #2A331F;
-  --copper: #B15B2C;
-  --sage: #8B9A7C;
-  --sage-line: #D9D3BE;
+  --parchment: #FFF0DD;
+  --cream: #FFF8EE;
+  --ink: #20212B;
+  --moss: #534145;
+  --moss-deep: #2D4354;
+  --copper: #8A5642;
+  --sage: #5E6256;
+  --sage-line: #E3D2B8;
 
   --serif: 'Source Serif 4', Georgia, serif;
   --sans: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -164,7 +164,7 @@ p { margin: 0 0 1.1em; max-width: 68ch; }
   background: var(--copper);
   color: var(--cream);
 }
-.btn-primary:hover { background: #9a4c23; text-decoration: none; }
+.btn-primary:hover { background: #744231; text-decoration: none; }
 
 .btn-secondary {
   background: transparent;
@@ -247,8 +247,8 @@ section + section { border-top: 1px solid var(--sage-line); }
   border-radius: 3px;
   margin-bottom: 0.6rem;
 }
-.tag-live { background: #DCE5D3; color: var(--moss-deep); }
-.tag-progress { background: #F1E0CB; color: #7A4A1E; }
+.tag-live { background: #E3E6DD; color: var(--moss-deep); }
+.tag-progress { background: #F6DCC4; color: #7D4A38; }
 
 /* ---------- Cards (published work, roles) ---------- */
 
@@ -337,4 +337,160 @@ blockquote {
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+/* ===== Home hero: the "plate" composition ===== */
+:root { --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.hero-home {
+  padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 4.5rem);
+  border-bottom: 1px solid var(--sage-line);
+  overflow-x: clip;
+}
+.hero-home .container { max-width: 1120px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 1.5rem;
+  align-items: start;
+}
+.hero-copy { grid-column: 1 / span 7; padding-top: clamp(0rem, 2vw, 1.5rem); }
+
+.hero-home .plate-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+.hero-home .plate-label::before { content: ""; width: 2.5rem; height: 1px; background: currentColor; }
+
+.hero-title {
+  font-size: clamp(2.7rem, 6.6vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 1.1rem 0 1.4rem;
+  max-width: 12.5ch;
+}
+.hero-home .lede {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  color: var(--moss);
+  max-width: 34ch;
+  margin: 0 0 1.8rem;
+}
+.hero-latest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  max-width: 40rem;
+  margin: 2.4rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sage-line);
+  font-size: 0.92rem;
+}
+.hero-latest span {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+.hero-latest em { font-style: normal; font-size: 0.85rem; color: var(--sage); }
+.hero-latest a {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden; flex: 1 1 100%;
+}
+
+/* The figure */
+.plate { grid-column: 8 / span 5; margin: clamp(0.5rem, 5vw, 3.5rem) 0 0; }
+.plate-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.plate .line-head, .plate .line-eye, .plate .line-brain, .plate .line-fold,
+.plate .net-line, .plate .vagus, .plate .hippo { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.plate .line-head { stroke: var(--moss-deep); stroke-width: 1.6; }
+.plate .line-eye { stroke: var(--moss-deep); stroke-width: 1.4; }
+.plate .line-brain { stroke: var(--moss-deep); stroke-width: 1.5; fill: var(--cream); }
+.plate .line-fold { stroke: var(--sage); stroke-width: 1; opacity: 0.5; }
+.plate .net-line, .plate .vagus, .plate .hippo {
+  stroke: var(--moss); stroke-width: 1.2;
+  transition: stroke 0.25s ease, stroke-width 0.25s ease;
+}
+.plate .node { fill: var(--moss-deep); transition: fill 0.25s ease; }
+.plate .marker circle { fill: var(--parchment); stroke: var(--copper); stroke-width: 1; }
+.plate .marker text {
+  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  fill: var(--copper); text-anchor: middle; dominant-baseline: central;
+}
+.plate .hit { fill: transparent; }
+.plate .region { cursor: pointer; outline: none; transition: opacity 0.25s ease; }
+.plate.has-active .region:not(.is-active) { opacity: 0.3; }
+.plate .region.is-active .net-line, .plate .region.is-active .vagus,
+.plate .region.is-active .hippo { stroke: var(--copper); stroke-width: 2; }
+.plate .region.is-active .node { fill: var(--copper); }
+.plate .region.is-active .marker circle { fill: var(--copper); }
+.plate .region.is-active .marker text { fill: var(--cream); }
+
+/* The legend under the figure */
+.plate-cap { margin-top: 1rem; }
+.plate-title {
+  margin: 0 0 0.6rem;
+  font-family: var(--mono); font-size: 0.75rem;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage);
+}
+.plate-title span { color: var(--copper); margin-right: 0.4rem; }
+.plate-index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--sage-line); }
+.plate-index li { border-bottom: 1px solid var(--sage-line); }
+.plate-index a {
+  display: grid; grid-template-columns: 1.6rem 1fr; align-items: baseline; gap: 0.5rem;
+  padding: 0.6rem 0.1rem; color: var(--moss-deep); text-decoration: none;
+  transition: color 0.2s ease;
+}
+.plate-index a:hover, .plate-index a:focus-visible, .plate-index a.is-active { color: var(--copper); }
+.plate-index .n { font-family: var(--mono); font-size: 0.75rem; color: var(--copper); }
+.plate-index small { display: block; font-size: 0.85rem; color: var(--sage); }
+
+@media (max-width: 860px) {
+  .hero-copy, .plate { grid-column: 1 / -1; }
+  .plate { max-width: 440px; margin: 2.5rem auto 0; }
+}
+
+/* ===== Hero motion: only when the visitor hasn't asked for reduced motion ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero-title .w { display: inline-block; opacity: 0; transform: translateY(0.35em); }
+  .js .hero-home.is-ready .hero-title .w {
+    opacity: 1; transform: none;
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: calc(var(--i, 0) * 80ms + 120ms);
+  }
+  .js .hero-copy .fade { opacity: 0; transform: translateY(10px); }
+  .js .hero-home.is-ready .hero-copy .fade {
+    opacity: 1; transform: none;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition-delay: calc(var(--d, 0) * 1ms);
+  }
+
+  /* The drawing draws itself once, head first, then brain, then network */
+  .js .plate .draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .js .hero-home.is-ready .plate .draw {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--t, 0) * 1ms),
+                stroke 0.25s ease, stroke-width 0.25s ease;
+  }
+  .js .plate .node, .js .plate .marker { opacity: 0; }
+  .js .hero-home.is-ready .plate .node,
+  .js .hero-home.is-ready .plate .marker { opacity: 1; transition: opacity 0.6s ease 1.5s, fill 0.25s ease; }
+  .js .plate-cap { opacity: 0; }
+  .js .hero-home.is-ready .plate-cap { opacity: 1; transition: opacity 0.8s ease 1.7s; }
+
+  /* Depth: layers drift at different speeds while the hero scrolls away */
+  .plate .layer-brain { transform: translateY(calc(var(--p, 0) * -10px)); }
+  .plate .layer-net { transform: translateY(calc(var(--p, 0) * -20px)); }
+
+  .plate-index a { transition: color 0.2s ease, padding-left 0.2s ease; }
+  .plate-index a:hover, .plate-index a:focus-visible, .plate-index a.is-active { padding-left: 0.35rem; }
 }
