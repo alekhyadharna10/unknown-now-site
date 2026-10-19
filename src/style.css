@@ -703,3 +703,35 @@ main .hero::after{
 main .hero :is(div,p):has(> .btn){display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;margin-left:auto;margin-right:auto}
 main .hero .container > .btn{display:table;margin:26px auto 0}
 main .hero .btn{margin-left:0;margin-right:0}
+
+/* ===== Cohort page (hero-redesign) ===== */
+.subnav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.subnav a{padding:10px 24px;border-radius:99px;background:#FFF9F5;color:#39465E;text-decoration:none;font-weight:600;font-size:.92rem;border:1.5px solid #39465E;transition:background .3s,color .3s}
+.subnav a:hover{background:#39465E;color:#FFF9F5}
+.people-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:22px;margin-top:40px}
+.person{text-align:center;padding:30px 20px 28px;border-radius:44px;background:#F1D5CE;color:#2B3548;transition:transform .5s ease}
+.person:nth-child(4n+2){background:#A7B6D6}
+.person:nth-child(4n+3){background:#D5E5D3}
+.person:nth-child(4n){background:#E9A992}
+.person h3{font-size:1.1rem;margin:14px 0 4px;color:#2B3548}
+.person p{margin:0;font-size:.92rem;color:#2B3548}
+.person-photo{display:block;width:132px;height:132px;margin:0 auto;border-radius:50%;object-fit:cover;border:4px solid #FFF9F5}
+.person-initial{display:flex;align-items:center;justify-content:center;background:#39465E;color:#FFF9F5;font-family:'Source Serif 4',Georgia,serif;font-size:2.6rem;text-transform:uppercase}
+.mentor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px;margin-top:40px}
+.mentor{text-align:center;padding:36px 26px;border-radius:120px 36px 120px 36px;background:#D5E5D3;color:#2B3548;transition:transform .5s ease}
+.mentor:nth-child(even){background:#A7B6D6;border-radius:36px 120px 36px 120px}
+.mentor h3{font-size:1.25rem;margin:16px 0 8px;color:#2B3548}
+.mentor p{margin:12px 0 0;color:#2B3548;font-size:.95rem}
+.mentor-photo{display:block;width:170px;height:170px;margin:0 auto;object-fit:cover;border-radius:46% 54% 50% 50% / 50% 44% 56% 50%;border:4px solid #FFF9F5}
+.mentor .person-initial{font-size:3.2rem}
+@media (prefers-reduced-motion:no-preference){
+  .person:hover,.mentor:hover{transform:translateY(-6px) rotate(-.6deg)}
+}
+
+/* ===== Nav dropdown (hero-redesign) ===== */
+.nav-drop{position:relative;display:inline-block}
+.nav-drop .drop-toggle::after{content:"";display:inline-block;margin-left:7px;border:5px solid transparent;border-top-color:currentColor;border-bottom:0;vertical-align:middle}
+.nav-drop .drop-menu{position:absolute;top:100%;left:50%;min-width:190px;padding:10px;display:flex;flex-direction:column;gap:4px;background:#FFF9F5;border-radius:24px;box-shadow:0 14px 32px rgba(43,53,72,.16);opacity:0;visibility:hidden;transform:translateX(-50%) translateY(8px);transition:opacity .25s ease,transform .25s ease,visibility .25s;z-index:30}
+.nav-drop:hover .drop-menu,.nav-drop:focus-within .drop-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.nav-drop .drop-menu a{display:block;margin:0;padding:12px 18px;border-radius:16px;text-align:center;white-space:nowrap;box-shadow:none;color:#39465E}
+.nav-drop .drop-menu a:hover{background:#D5E5D3}

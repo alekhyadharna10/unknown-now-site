@@ -21,7 +21,13 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
       <a href="/research/" {% if page.url == "/research/" %}aria-current="page"{% endif %}>Research</a>
-      <a href="/get-involved/" {% if page.url == "/get-involved/" %}aria-current="page"{% endif %}>Get Involved</a>
+      <div class="nav-drop">
+        <a class="drop-toggle" href="/get-involved/" aria-haspopup="true"{% if page.url == "/get-involved/" or page.url == "/cohort/" %} aria-current="page"{% endif %}>Get Involved</a>
+        <div class="drop-menu">
+          <a href="/get-involved/">Get Involved</a>
+          <a href="/cohort/">Cohort 2026</a>
+        </div>
+      </div>
       <a href="/whats-next/" {% if page.url == "/whats-next/" %}aria-current="page"{% endif %}>What's Next</a>
       <a href="/published-work/" {% if page.url == "/published-work/" %}aria-current="page"{% endif %}>Published Work</a>
       <a href="/contact/" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a>

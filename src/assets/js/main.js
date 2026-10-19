@@ -126,7 +126,7 @@
     });
   }
   tag('.eyebrow,.kicker,.lede,h2,.article-meta,.article-body > *,.section-head p', 'rv');
-  tag('.card,.pillar,.founder-photo,.article-image,.tag', 'popb');
+  tag('.card,.pillar,.founder-photo,.article-image,.tag,.person,.mentor', 'popb');
   tag('.btn', 'pop');
   var targets = root.querySelectorAll('.split-words,.rv,.popb,.pop');
   if (reduce || !('IntersectionObserver' in window)) {
