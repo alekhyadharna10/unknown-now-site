@@ -1,4 +1,11 @@
 ---
+nextKicker: "What's next"
+nextHeading: "What we're building."
+nextIntro: "Some of our work is finished and live. Some is still taking shape. This section is where we're honest about which is which."
+nextStatus: "In development"
+nextTitle: "Sensory Audit Initiative"
+nextBody: "We're exploring a public audit initiative focused on sensory environments. The idea is still early, and not yet confirmed or partnered with anyone."
+nextNote: "We'll update this section as the initiative moves from concept to something concrete. If you're interested in being part of it early,"
 layout: base.njk
 permalink: /
 title: "Science Communication, Grounded in Neuroscience"
@@ -100,6 +107,21 @@ cohortRoles:
   </div>
 </section>
 
+<section class="next-home">
+  <div class="container">
+    <div class="section-head rv">
+      <p class="kicker">{{ nextKicker }}</p>
+      <h2>{{ nextHeading }}</h2>
+      <p>{{ nextIntro }}</p>
+    </div>
+    <div class="next-card popb">
+      <span class="tag">{{ nextStatus }}</span>
+      <h3>{{ nextTitle }}</h3>
+      <p>{{ nextBody }}</p>
+      <p>{{ nextNote }} <a href="/contact/">reach out</a>.</p>
+    </div>
+  </div>
+</section>
 <div class="wave-wrap"><svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#39465E" d="M0 60 C 240 120 480 0 720 50 C 960 100 1200 10 1440 60 L1440 120 L0 120 Z"/></svg></div>
 
 <div class="home-dark">
