@@ -34,8 +34,11 @@ cohortRoles:
 ---
 {% set latest = collections.research | reverse | first %}
 {% set recent = collections.research | reverse %}
-<div class="home-light">
+{% set shapes = ['bl leaf1', 'bp leaf2', 'bs leaf3'] %}
+{% set minis = ['bp', 'be', 'bl'] %}
+<div class="hx">
 <section class="hero-home">
+  <span class="backblob bb1"></span><span class="backblob bb2"></span>
   <div class="container hero-grid">
     <div class="hero-copy">
       <p class="plate-label fade" style="--d:0">{{ heroEyebrow }}</p>
@@ -59,9 +62,9 @@ cohortRoles:
       <p class="kicker rv">What we do</p>
       <h2 class="split-words">Three ways into the unknown</h2>
     </div>
-    <div class="pillars stagger">
+    <div class="pillars">
       {% for p in pillars %}
-      <div class="pillar">
+      <div class="blob {{ shapes[loop.index0] }} popb" style="--d:{{ loop.index0 * 150 }};--rot:{{ [-8, 6, -5][loop.index0] }}deg">
         <h3>{{ p.title }}</h3>
         <p>{{ p.body }}</p>
         <a href="{{ p.link }}">{{ p.linkText }} →</a>
@@ -71,32 +74,33 @@ cohortRoles:
   </div>
 </section>
 
-<section class="home-sec">
+<section class="home-sec" style="padding-top:40px">
   <div class="container">
     <div class="section-head">
       <p class="kicker rv">The archive</p>
       <h2 class="split-words">Newest research</h2>
     </div>
     <div class="research-preview">
-      {% for a in recent | slice(0, 1) %}{% for item in a %}
-      <a class="rp-feature rv" href="{{ item.url }}">
+      {% for item in recent %}{% if loop.first %}
+      <a class="blob bpe feat popb" style="--rot:-5deg" href="{{ item.url }}">
         <span class="rp-meta">{{ item.data.displayDate }} · {{ item.data.author }}</span>
         <span class="rp-title">{{ item.data.title }}</span>
       </a>
-      {% endfor %}{% endfor %}
-      <div class="rp-list stagger">
+      {% endif %}{% endfor %}
+      <div class="cluster">
         {% for item in recent %}{% if loop.index > 1 and loop.index < 5 %}
-        <a class="rp-item" href="{{ item.url }}">
+        <a class="blob {{ minis[loop.index0 - 1] }} mini popb" style="--d:{{ (loop.index0 - 1) * 150 + 150 }};--rot:{{ [5, -5, 4][loop.index0 - 1] }}deg" href="{{ item.url }}">
           <span class="rp-meta">{{ item.data.displayDate }}</span>
           <span class="rp-name">{{ item.data.title }}</span>
         </a>
         {% endif %}{% endfor %}
-        <p class="rp-all"><a href="/research/">See all research →</a></p>
+        <p class="rp-all rv"><a href="/research/">See all research →</a></p>
       </div>
     </div>
   </div>
 </section>
-</div>
+
+<div class="wave-wrap"><svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#39465E" d="M0 60 C 240 120 480 0 720 50 C 960 100 1200 10 1440 60 L1440 120 L0 120 Z"/></svg></div>
 
 <div class="home-dark">
 <section class="home-sec home-quote">
@@ -115,9 +119,9 @@ cohortRoles:
       <p class="rv">{{ cohortBody }}</p>
       <p><a class="btn btn-primary pop" href="/get-involved/">Apply to the next cohort</a></p>
     </div>
-    <div class="pill-stack stagger">
+    <div class="role-stack">
       {% for r in cohortRoles %}
-      <div class="role pr{{ loop.index }}">
+      <div class="role r{{ loop.index }}">
         <button class="role-head" type="button" aria-expanded="false" aria-controls="role-{{ loop.index }}"><span>{{ r.name }}</span><i class="role-plus" aria-hidden="true"></i></button>
         <div class="role-body" id="role-{{ loop.index }}" role="region"><div class="role-inner"><p>{{ r.body }}</p></div></div>
       </div>
@@ -125,4 +129,5 @@ cohortRoles:
     </div>
   </div>
 </section>
+</div>
 </div>

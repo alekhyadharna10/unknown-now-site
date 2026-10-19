@@ -61,7 +61,7 @@
   }
 })();
 
-/* ===== Scroll reveals (hero-redesign) ===== */
+/* ===== Homepage v3 motion (hero-redesign) ===== */
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.split-words').forEach(function (el) {
@@ -70,24 +70,28 @@
       return '<span class="sw" style="--i:' + (i++) + '">' + w + '</span>';
     }).join(' ');
   });
-  document.querySelectorAll('.stagger').forEach(function (g) {
+  document.querySelectorAll('.role-stack').forEach(function (g) {
     Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty('--i', i); });
   });
-  var targets = document.querySelectorAll('.split-words,.rv,.pop,.stagger');
+  var targets = document.querySelectorAll('.split-words,.rv,.pop,.popb,.role-stack');
   if (reduce || !('IntersectionObserver' in window)) {
     targets.forEach(function (t) { t.classList.add('in'); });
-    return;
+  } else {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function (t) { io.observe(t); });
+    var ticking = false;
+    addEventListener('scroll', function () {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        document.documentElement.style.setProperty('--s', Math.min(1, scrollY / 700));
+      });
+    }, { passive: true });
   }
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
-  targets.forEach(function (t) { io.observe(t); });
-})();
-
-/* ===== Cohort roles: click to expand ===== */
-(function () {
   document.querySelectorAll('.role-head').forEach(function (h) {
     h.addEventListener('click', function () {
       var role = h.parentNode, wasOpen = role.classList.contains('open');
