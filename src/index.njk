@@ -20,28 +20,51 @@ pillars:
     body: "Public initiatives currently in development, including a sensory audit concept — honestly labeled as not yet live."
     link: "/whats-next/"
     linkText: "Read the plan"
+cohortTitle: "Meet the interns running it"
+cohortBody: "Each cohort is mentored directly by our founders and takes on real responsibility in running The UnknownNow."
+cohortRoles:
+  - name: "Writers"
+    body: "Turn a research paper into a clear, accurate literature review. Writers pick a topic, read the studies, and draft articles for the Unknown Brain series with an editor's feedback."
+  - name: "Editors"
+    body: "Check claims against their sources, tighten the writing, and make sure every article is accurate and readable before it is published."
+  - name: "Designers"
+    body: "Create the visuals that go with the research: graphics, layouts and social posts that make a complex idea easy to see."
+  - name: "Outreach"
+    body: "Grow our readership through Instagram, partnerships with other student groups, and getting the research in front of people who would want it."
 ---
-<section class="hero">
-  <div class="container">
-    <p class="eyebrow">{{ heroEyebrow }}</p>
-    <h1>{{ heroTitle }}</h1>
-    <p class="lede">{{ heroLede }}</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="/research/">Read our research</a>
-      <a class="btn btn-secondary" href="/get-involved/">Get involved</a>
+{% set latest = collections.research | reverse | first %}
+{% set recent = collections.research | reverse %}
+{% set shapes = ['bl leaf1', 'bp leaf2', 'bs leaf3'] %}
+{% set minis = ['bp', 'be', 'bl'] %}
+<div class="hx">
+<section class="hero-home">
+  <span class="backblob bb1"></span><span class="backblob bb2"></span>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="plate-label fade" style="--d:0">{{ heroEyebrow }}</p>
+      <h1 class="hero-title">{{ heroTitle }}</h1>
+      <p class="lede fade" style="--d:450">{{ heroLede }}</p>
+      <div class="hero-actions fade" style="--d:600">
+        <a class="btn btn-primary" href="/research/">Read our research</a>
+        <a class="btn btn-secondary" href="/get-involved/">Get involved</a>
+      </div>
+      {% if latest %}
+      <p class="hero-latest fade" style="--d:750"><span>Newest in the archive</span> <a href="{{ latest.url }}">{{ latest.data.title }}</a> <em>{{ latest.data.displayDate }}</em></p>
+      {% endif %}
     </div>
+    {% include "hero-plate.njk" %}
   </div>
 </section>
 
-<section>
+<section class="home-sec">
   <div class="container">
     <div class="section-head">
-      <p class="kicker">What we do</p>
-      <h2>Three ways we work</h2>
+      <p class="kicker rv">What we do</p>
+      <h2 class="split-words">Three ways into the unknown</h2>
     </div>
     <div class="pillars">
       {% for p in pillars %}
-      <div class="pillar">
+      <div class="blob {{ shapes[loop.index0] }} popb" style="--d:{{ loop.index0 * 150 }};--rot:{{ [-8, 6, -5][loop.index0] }}deg">
         <h3>{{ p.title }}</h3>
         <p>{{ p.body }}</p>
         <a href="{{ p.link }}">{{ p.linkText }} →</a>
@@ -51,9 +74,60 @@ pillars:
   </div>
 </section>
 
-<section>
+<section class="home-sec" style="padding-top:40px">
   <div class="container">
-    <blockquote>{{ quote }}</blockquote>
-    <p><a href="/about/">Learn more about our mission and how we work →</a></p>
+    <div class="section-head">
+      <p class="kicker rv">The archive</p>
+      <h2 class="split-words">Newest research</h2>
+    </div>
+    <div class="research-preview">
+      {% for item in recent %}{% if loop.first %}
+      <a class="blob bpe feat popb" style="--rot:-5deg" href="{{ item.url }}">
+        <span class="rp-meta">{{ item.data.displayDate }} · {{ item.data.author }}</span>
+        <span class="rp-title">{{ item.data.title }}</span>
+      </a>
+      {% endif %}{% endfor %}
+      <div class="cluster">
+        {% for item in recent %}{% if loop.index > 1 and loop.index < 5 %}
+        <a class="blob {{ minis[loop.index0 - 1] }} mini popb" style="--d:{{ (loop.index0 - 1) * 150 + 150 }};--rot:{{ [5, -5, 4][loop.index0 - 1] }}deg" href="{{ item.url }}">
+          <span class="rp-meta">{{ item.data.displayDate }}</span>
+          <span class="rp-name">{{ item.data.title }}</span>
+        </a>
+        {% endif %}{% endfor %}
+        <p class="rp-all rv"><a href="/research/">See all research →</a></p>
+      </div>
+    </div>
   </div>
 </section>
+
+<div class="wave-wrap"><svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#39465E" d="M0 60 C 240 120 480 0 720 50 C 960 100 1200 10 1440 60 L1440 120 L0 120 Z"/></svg></div>
+
+<div class="home-dark">
+<section class="home-sec home-quote">
+  <div class="container">
+    <p class="kicker rv">Our belief</p>
+    <blockquote class="split-words">{{ quote }}</blockquote>
+    <p class="rv"><a href="/about/">Learn more about our mission and how we work →</a></p>
+  </div>
+</section>
+
+<section class="home-sec home-cohort" id="cohort">
+  <div class="container cohort-grid">
+    <div>
+      <p class="kicker rv">The cohort</p>
+      <h2 class="split-words">{{ cohortTitle }}</h2>
+      <p class="rv">{{ cohortBody }}</p>
+      <p><a class="btn btn-primary pop" href="/get-involved/">Apply to the next cohort</a></p>
+    </div>
+    <div class="role-stack">
+      {% for r in cohortRoles %}
+      <div class="role r{{ loop.index }}">
+        <button class="role-head" type="button" aria-expanded="false" aria-controls="role-{{ loop.index }}"><span>{{ r.name }}</span><i class="role-plus" aria-hidden="true"></i></button>
+        <div class="role-body" id="role-{{ loop.index }}" role="region"><div class="role-inner"><p>{{ r.body }}</p></div></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+</div>
+</div>
