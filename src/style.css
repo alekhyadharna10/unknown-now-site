@@ -746,3 +746,6 @@ main .hero .btn{margin-left:0;margin-right:0}
 
 /* ===== Eyebrow case (hero-redesign) ===== */
 body [class*="eyebrow"]{text-transform:none !important;letter-spacing:.03em !important;font-size:.98rem !important}
+
+/* ===== Plate label case (hero-redesign) ===== */
+body .plate-label{text-transform:none !important;letter-spacing:.02em !important;font-size:1.05rem !important}
