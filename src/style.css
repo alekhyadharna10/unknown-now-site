@@ -647,3 +647,28 @@ body:not(:has(.hx))::after{top:520px;left:-120px;width:240px;height:220px;backgr
   body:not(:has(.hx))::after{animation:hx-morph2 11s ease-in-out infinite;translate:0 calc(var(--s,0)*-40px)}
   .card:hover,.pillar:hover{transform:translateY(-6px) rotate(-.6deg)}
 }
+
+/* ===== Inner banner (hero-redesign) ===== */
+body:not(:has(.hx))::before,body:not(:has(.hx))::after{display:none}
+.crumbs{background:#F7EAE6;font-size:.88rem;padding:14px 0;color:#4F6B5D}
+.crumbs .container{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.crumbs a{color:#4F6B5D;text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+.crumbs b{color:#2B3548;font-weight:600}
+.crumbs span{opacity:.6}
+main .hero{position:relative;overflow:hidden;background:#39465E;color:#FFF9F5;text-align:center;padding:96px 0 112px;border-radius:0 0 50% 50% / 0 0 52px 52px}
+main .hero .container{position:relative;z-index:1}
+main .hero::before,main .hero::after{content:"";position:absolute;pointer-events:none;z-index:0}
+main .hero::before{width:520px;height:460px;right:-120px;top:-140px;background:#A7B6D6;opacity:.2;border-radius:58% 42% 46% 54% / 52% 46% 54% 48%}
+main .hero::after{width:300px;height:260px;left:-90px;bottom:-110px;background:#D5E5D3;opacity:.18;border-radius:50% 50% 40% 60% / 60% 40% 60% 40%}
+main .hero .eyebrow{display:inline-block;padding:9px 20px;border-radius:99px;background:rgba(167,182,214,.2);color:#D5E5D3;margin:0 0 18px}
+main .hero h1{color:#FFF9F5;text-align:center;margin:0 auto 18px;max-width:900px}
+main .hero h1 .sw:last-child{color:#E9A992}
+main .hero .lede{color:#E6E9F0;max-width:660px;margin:0 auto}
+main .hero .btn-primary{background:#E9A992;color:#2B3548}
+main .hero .btn-secondary{color:#FFF9F5;border-color:#FFF9F5}
+@media (max-width:860px){main .hero{padding:64px 0 78px}main .hero::before{width:320px;height:290px}}
+@media (prefers-reduced-motion:no-preference){
+  main .hero::before{animation:hx-morph 14s ease-in-out infinite}
+  main .hero::after{animation:hx-morph2 11s ease-in-out infinite}
+}

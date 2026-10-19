@@ -148,3 +148,39 @@
     });
   }, { passive: true });
 })();
+
+/* ===== Inner banner (hero-redesign) ===== */
+(function () {
+  if (document.querySelector('.hx')) return;
+  var names = { 'about': 'About', 'research': 'Research', 'get-involved': 'Get Involved', 'whats-next': "What's Next", 'published-work': 'Published Work', 'contact': 'Contact' };
+  var segs = location.pathname.split('/').filter(Boolean);
+  if (!segs.length) return;
+  var root = document.querySelector('main') || document.body;
+  var h1 = root.querySelector('h1');
+  var nav = document.createElement('nav');
+  nav.className = 'crumbs';
+  nav.setAttribute('aria-label', 'Breadcrumb');
+  var box = document.createElement('div');
+  box.className = 'container';
+  var home = document.createElement('a');
+  home.href = '/'; home.textContent = 'Home';
+  box.appendChild(home);
+  var path = '';
+  segs.forEach(function (s, i) {
+    path += '/' + s;
+    var last = i === segs.length - 1;
+    var label = names[s] || (last && h1 ? h1.textContent.trim() : s.replace(/-/g, ' '));
+    if (label.length > 60) label = label.slice(0, 57) + '…';
+    var sep = document.createElement('span');
+    sep.setAttribute('aria-hidden', 'true'); sep.textContent = '›';
+    box.appendChild(sep);
+    var el = document.createElement(last ? 'b' : 'a');
+    if (!last) el.href = path + '/';
+    el.textContent = label;
+    box.appendChild(el);
+  });
+  nav.appendChild(box);
+  var hero = root.querySelector('.hero');
+  if (hero && hero.parentNode) hero.parentNode.insertBefore(nav, hero);
+  else root.insertBefore(nav, root.firstChild);
+})();
