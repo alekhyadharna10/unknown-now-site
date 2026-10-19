@@ -78,7 +78,7 @@ collections:
               - { label: "Bio", name: "bio", widget: "text" }
 
       - name: "cohort"
-        label: "Cohort: Interns & Mentors"
+        label: "Cohort Page Text"
         file: "src/_data/cohort.json"
         fields:
           - { label: "Page Eyebrow", name: "heroEyebrow", widget: "string", required: false }
@@ -99,31 +99,9 @@ collections:
           - { label: "Interns Heading", name: "internsHeading", widget: "string", required: false }
           - { label: "Interns Intro", name: "internsIntro", widget: "text", required: false }
           - { label: "Message While No Interns Are Added", name: "emptyNote", widget: "string", required: false }
-          - label: "Interns"
-            name: "interns"
-            widget: "list"
-            label_singular: "Intern"
-            summary: "{{fields.name}}"
-            required: false
-            hint: "Click 'Add Intern' for each person. Only add a photo if they have agreed to it."
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Role", name: "role", widget: "string", required: false }
-              - { label: "Photo", name: "photo", widget: "image", required: false }
           - { label: "Mentors Label", name: "mentorsKicker", widget: "string", required: false }
           - { label: "Mentors Heading", name: "mentorsHeading", widget: "string", required: false }
           - { label: "Mentors Intro", name: "mentorsIntro", widget: "text", required: false }
-          - label: "Mentors"
-            name: "mentors"
-            widget: "list"
-            label_singular: "Mentor"
-            summary: "{{fields.name}}"
-            required: false
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Role", name: "role", widget: "string", required: false }
-              - { label: "Short Bio", name: "bio", widget: "text", required: false }
-              - { label: "Photo", name: "photo", widget: "image", required: false }
 
       - name: "get-involved"
         label: "Get Involved Page"
@@ -202,3 +180,32 @@ collections:
         name: "permalink"
         widget: "string"
         hint: "e.g. /research/my-article-slug/"
+
+  - name: "interns"
+    label: "Interns"
+    label_singular: "Intern"
+    folder: "src/interns"
+    create: true
+    identifier_field: "name"
+    slug: "{{slug}}"
+    summary: "{{name}} ({{role}})"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string", required: false }
+      - { label: "Photo", name: "photo", widget: "image", required: false, hint: "Only add a photo if they have agreed to it." }
+      - { label: "Display Order (1 = first)", name: "order", widget: "number", value_type: "int", required: false, default: 100 }
+
+  - name: "mentors"
+    label: "Mentors"
+    label_singular: "Mentor"
+    folder: "src/mentors"
+    create: true
+    identifier_field: "name"
+    slug: "{{slug}}"
+    summary: "{{name}} ({{role}})"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string", required: false }
+      - { label: "Short Bio", name: "bio", widget: "text", required: false }
+      - { label: "Photo", name: "photo", widget: "image", required: false, hint: "Only add a photo if they have agreed to it." }
+      - { label: "Display Order (1 = first)", name: "order", widget: "number", value_type: "int", required: false, default: 100 }

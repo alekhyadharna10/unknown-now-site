@@ -4,6 +4,8 @@ permalink: /cohort/
 title: "Cohort 2026"
 description: "Meet the interns and mentors of The UnknownNow."
 ---
+{% set internList = (collections.interns | sort(false, false, "data.order")) if collections.interns else [] %}
+{% set mentorList = (collections.mentors | sort(false, false, "data.order")) if collections.mentors else [] %}
 <section class="hero">
   <div class="container">
     <p class="eyebrow">{{ cohort.heroEyebrow or "The cohort" }}</p>
@@ -11,8 +13,8 @@ description: "Meet the interns and mentors of The UnknownNow."
     <p class="lede">{{ cohort.heroLede }}</p>
     <div class="subnav">
       <a href="#program">The program</a>
-      {% if cohort.interns and cohort.interns.length %}<a href="#interns">Interns</a>{% endif %}
-      {% if cohort.mentors and cohort.mentors.length %}<a href="#mentors">Mentors</a>{% endif %}
+      {% if internList.length %}<a href="#interns">Interns</a>{% endif %}
+      {% if mentorList.length %}<a href="#mentors">Mentors</a>{% endif %}
       <a href="/get-involved/">How to apply</a>
     </div>
   </div>
@@ -36,7 +38,7 @@ description: "Meet the interns and mentors of The UnknownNow."
   </div>
 </section>
 
-{% if not (cohort.interns and cohort.interns.length) %}
+{% if not internList.length %}
 <section>
   <div class="container">
     <p class="cohort-soon">{{ cohort.emptyNote or "Our interns will be introduced here." }}</p>
@@ -44,7 +46,7 @@ description: "Meet the interns and mentors of The UnknownNow."
 </section>
 {% endif %}
 
-{% if cohort.interns and cohort.interns.length %}
+{% if internList.length %}
 <section id="interns">
   <div class="container">
     <div class="section-head">
@@ -53,11 +55,11 @@ description: "Meet the interns and mentors of The UnknownNow."
       <p>{{ cohort.internsIntro }}</p>
     </div>
     <div class="people-grid">
-      {% for p in cohort.interns %}
+      {% for item in internList %}
       <div class="person">
-        {% if p.photo %}<img class="person-photo" src="{{ p.photo }}" alt="{{ p.name }}">{% else %}<span class="person-photo person-initial" aria-hidden="true">{{ p.name | first }}</span>{% endif %}
-        <h3>{{ p.name }}</h3>
-        <p>{{ p.role }}</p>
+        {% if item.data.photo %}<img class="person-photo" src="{{ item.data.photo }}" alt="{{ item.data.name }}">{% else %}<span class="person-photo person-initial" aria-hidden="true">{{ item.data.name | first }}</span>{% endif %}
+        <h3>{{ item.data.name }}</h3>
+        <p>{{ item.data.role }}</p>
       </div>
       {% endfor %}
     </div>
@@ -65,7 +67,7 @@ description: "Meet the interns and mentors of The UnknownNow."
 </section>
 {% endif %}
 
-{% if cohort.mentors and cohort.mentors.length %}
+{% if mentorList.length %}
 <section id="mentors">
   <div class="container">
     <div class="section-head">
@@ -74,12 +76,12 @@ description: "Meet the interns and mentors of The UnknownNow."
       <p>{{ cohort.mentorsIntro }}</p>
     </div>
     <div class="mentor-grid">
-      {% for m in cohort.mentors %}
+      {% for item in mentorList %}
       <div class="mentor">
-        {% if m.photo %}<img class="mentor-photo" src="{{ m.photo }}" alt="{{ m.name }}">{% else %}<span class="mentor-photo person-initial" aria-hidden="true">{{ m.name | first }}</span>{% endif %}
-        <h3>{{ m.name }}</h3>
-        <span class="tag tag-live">{{ m.role }}</span>
-        <p>{{ m.bio }}</p>
+        {% if item.data.photo %}<img class="mentor-photo" src="{{ item.data.photo }}" alt="{{ item.data.name }}">{% else %}<span class="mentor-photo person-initial" aria-hidden="true">{{ item.data.name | first }}</span>{% endif %}
+        <h3>{{ item.data.name }}</h3>
+        <span class="tag tag-live">{{ item.data.role }}</span>
+        <p>{{ item.data.bio }}</p>
       </div>
       {% endfor %}
     </div>
