@@ -670,3 +670,15 @@ main .hero .lede{color:#39465E;max-width:660px;margin:0 auto}
   .doodle-divider.in .dm.c{transition-delay:.1s}
   .doodle-divider.in .dm.e{transition-delay:1.7s}
 }
+
+/* ===== Inner hero soft banner (hero-redesign) ===== */
+main .hero{position:relative;overflow:hidden;background:rgba(167,182,214,.3);padding:76px 0 58px;border-radius:0 0 50% 50% / 0 0 56px 56px}
+main .hero::before,main .hero::after{display:block;content:"";position:absolute;pointer-events:none;z-index:0}
+main .hero::before{width:480px;height:420px;right:-110px;top:-150px;background:#D5E5D3;opacity:.55;border-radius:58% 42% 46% 54% / 52% 46% 54% 48%}
+main .hero::after{width:280px;height:240px;left:-90px;bottom:-120px;background:#F1D5CE;opacity:.7;border-radius:50% 50% 40% 60% / 60% 40% 60% 40%}
+main .hero .container{position:relative;z-index:1}
+@media (max-width:860px){main .hero{padding:54px 0 42px}main .hero::before{width:300px;height:270px}}
+@media (prefers-reduced-motion:no-preference){
+  main .hero::before{animation:hx-morph 14s ease-in-out infinite}
+  main .hero::after{animation:hx-morph2 11s ease-in-out infinite}
+}
