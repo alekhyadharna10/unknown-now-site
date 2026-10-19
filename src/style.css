@@ -743,3 +743,6 @@ main .hero .btn{margin-left:0;margin-right:0}
 .brand-eyebrow .brand-doodle path{fill:none;stroke:#607F70;stroke-width:2;stroke-linecap:round}
 .brand-eyebrow .brand-doodle .dm{fill:#607F70;stroke:none}
 .brand-eyebrow .brand-doodle circle{fill:#607F70}
+
+/* ===== Eyebrow case (hero-redesign) ===== */
+body [class*="eyebrow"]{text-transform:none !important;letter-spacing:.03em !important;font-size:.98rem !important}
