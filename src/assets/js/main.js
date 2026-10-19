@@ -167,21 +167,3 @@
   var el = host.querySelector('.doodle-divider');
   requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('in'); }); });
 })();
-
-/* ===== Brand eyebrow (hero-redesign) ===== */
-(function () {
-  var svg = '<svg class="brand-doodle" viewBox="0 0 86 22" aria-hidden="true"><path class="dm" d="M4 6.5 L8.5 11 L4 15.5 L-.5 11Z"/><path d="M14 11 C 22 1, 28 1, 32 11 S 46 21, 56 11"/><circle class="dm" cx="32" cy="11" r="2.2"/><path class="dm" d="M74 4.5 L80.5 11 L74 17.5 L67.5 11Z"/></svg>';
-  function run() {
-    var els = document.querySelectorAll('.eyebrow,.kicker');
-    for (var i = 0; i < els.length; i++) {
-      var el = els[i];
-      if (el.querySelector('.brand-doodle')) continue;
-      if (el.textContent.replace(/\s+/g, '').toLowerCase() !== 'theunknownnow') continue;
-      el.classList.add('brand-eyebrow');
-      el.innerHTML = svg + '<span>The UnknownNow</span>';
-    }
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
-  else run();
-})();
-/* ===== end Brand eyebrow ===== */
