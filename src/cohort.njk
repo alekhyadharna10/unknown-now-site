@@ -13,10 +13,29 @@ heroLede: "Interns are mentored directly by our founders and help run The Unknow
     <h1>{{ heroTitle }}</h1>
     <p class="lede">{{ heroLede }}</p>
     <div class="subnav">
+      <a href="#program">The program</a>
       <a href="#interns">Interns</a>
       <a href="#mentors">Mentors</a>
       <a href="/get-involved/">How to apply</a>
     </div>
+  </div>
+</section>
+
+<section id="program">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ cohort.programKicker }}</p>
+      <h2>{{ cohort.programHeading }}</h2>
+    </div>
+    <div class="card-grid">
+      {% for pt in cohort.programPoints %}
+      <div class="card">
+        <h3>{{ pt.title }}</h3>
+        <p>{{ pt.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p style="margin-top:1.5rem;"><a href="/get-involved/">See the roles and how to apply →</a></p>
   </div>
 </section>
 
