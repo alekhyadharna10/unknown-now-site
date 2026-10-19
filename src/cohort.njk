@@ -1,0 +1,60 @@
+---
+layout: base.njk
+permalink: /cohort/
+title: "Cohort"
+description: "Meet the interns and mentors of The UnknownNow."
+heroEyebrow: "The cohort"
+heroTitle: "Meet the people behind the work"
+heroLede: "Interns are mentored directly by our founders and help run The UnknownNow day to day."
+---
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">{{ heroEyebrow }}</p>
+    <h1>{{ heroTitle }}</h1>
+    <p class="lede">{{ heroLede }}</p>
+    <div class="subnav">
+      <a href="#interns">Interns</a>
+      <a href="#mentors">Mentors</a>
+      <a href="/get-involved/">How to apply</a>
+    </div>
+  </div>
+</section>
+
+<section id="interns">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ cohort.internsKicker }}</p>
+      <h2>{{ cohort.internsHeading }}</h2>
+      <p>{{ cohort.internsIntro }}</p>
+    </div>
+    <div class="people-grid">
+      {% for p in cohort.interns %}
+      <div class="person">
+        {% if p.photo %}<img class="person-photo" src="{{ p.photo }}" alt="{{ p.name }}">{% else %}<span class="person-photo person-initial" aria-hidden="true">{{ p.name | replace("[", "") | first }}</span>{% endif %}
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.role }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="mentors">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ cohort.mentorsKicker }}</p>
+      <h2>{{ cohort.mentorsHeading }}</h2>
+      <p>{{ cohort.mentorsIntro }}</p>
+    </div>
+    <div class="mentor-grid">
+      {% for m in cohort.mentors %}
+      <div class="mentor">
+        {% if m.photo %}<img class="mentor-photo" src="{{ m.photo }}" alt="{{ m.name }}">{% else %}<span class="mentor-photo person-initial" aria-hidden="true">{{ m.name | replace("[", "") | first }}</span>{% endif %}
+        <h3>{{ m.name }}</h3>
+        <span class="tag tag-live">{{ m.role }}</span>
+        <p>{{ m.bio }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

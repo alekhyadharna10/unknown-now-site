@@ -1,0 +1,20 @@
+{
+  "internsKicker": "Interns",
+  "internsHeading": "The cohort",
+  "internsIntro": "Our interns are mentored directly by our founders and help run The UnknownNow once they are onboarded.",
+  "interns": [
+    { "name": "[Intern Name]", "role": "[Role]", "photo": "" },
+    { "name": "[Intern Name]", "role": "[Role]", "photo": "" },
+    { "name": "[Intern Name]", "role": "[Role]", "photo": "" },
+    { "name": "[Intern Name]", "role": "[Role]", "photo": "" },
+    { "name": "[Intern Name]", "role": "[Role]", "photo": "" },
+    { "name": "[Intern Name]", "role": "[Role]", "photo": "" }
+  ],
+  "mentorsKicker": "Mentors",
+  "mentorsHeading": "Who guides the work",
+  "mentorsIntro": "Each cohort is mentored directly by our founders.",
+  "mentors": [
+    { "name": "[Mentor Name]", "role": "[Role]", "bio": "[One sentence about their background.]", "photo": "" },
+    { "name": "[Mentor Name]", "role": "[Role]", "bio": "[One sentence about their background.]", "photo": "" }
+  ]
+}
