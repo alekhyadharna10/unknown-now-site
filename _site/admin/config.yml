@@ -98,6 +98,7 @@ collections:
           - { label: "Interns Label", name: "internsKicker", widget: "string", required: false }
           - { label: "Interns Heading", name: "internsHeading", widget: "string", required: false }
           - { label: "Interns Intro", name: "internsIntro", widget: "text", required: false }
+          - { label: "Message While No Interns Are Added", name: "emptyNote", widget: "string", required: false }
           - label: "Interns"
             name: "interns"
             widget: "list"

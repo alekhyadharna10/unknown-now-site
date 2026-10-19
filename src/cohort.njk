@@ -36,6 +36,14 @@ description: "Meet the interns and mentors of The UnknownNow."
   </div>
 </section>
 
+{% if not (cohort.interns and cohort.interns.length) %}
+<section>
+  <div class="container">
+    <p class="cohort-soon">{{ cohort.emptyNote or "Our interns will be introduced here." }}</p>
+  </div>
+</section>
+{% endif %}
+
 {% if cohort.interns and cohort.interns.length %}
 <section id="interns">
   <div class="container">
