@@ -60,3 +60,42 @@
     });
   }
 })();
+
+/* ===== Scroll reveals (hero-redesign) ===== */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.split-words').forEach(function (el) {
+    var i = 0;
+    el.innerHTML = el.textContent.trim().split(/\s+/).map(function (w) {
+      return '<span class="sw" style="--i:' + (i++) + '">' + w + '</span>';
+    }).join(' ');
+  });
+  document.querySelectorAll('.stagger').forEach(function (g) {
+    Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty('--i', i); });
+  });
+  var targets = document.querySelectorAll('.split-words,.rv,.pop,.stagger');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function (t) { t.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+
+/* ===== Cohort roles: click to expand ===== */
+(function () {
+  document.querySelectorAll('.role-head').forEach(function (h) {
+    h.addEventListener('click', function () {
+      var role = h.parentNode, wasOpen = role.classList.contains('open');
+      document.querySelectorAll('.role.open').forEach(function (r) {
+        r.classList.remove('open');
+        r.querySelector('.role-head').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) { role.classList.add('open'); h.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+})();

@@ -20,8 +20,21 @@ pillars:
     body: "Public initiatives currently in development, including a sensory audit concept — honestly labeled as not yet live."
     link: "/whats-next/"
     linkText: "Read the plan"
+cohortTitle: "Meet the interns running it"
+cohortBody: "Each cohort is mentored directly by our founders and takes on real responsibility in running The UnknownNow."
+cohortRoles:
+  - name: "Writers"
+    body: "Turn a research paper into a clear, accurate literature review. Writers pick a topic, read the studies, and draft articles for the Unknown Brain series with an editor's feedback."
+  - name: "Editors"
+    body: "Check claims against their sources, tighten the writing, and make sure every article is accurate and readable before it is published."
+  - name: "Designers"
+    body: "Create the visuals that go with the research: graphics, layouts and social posts that make a complex idea easy to see."
+  - name: "Outreach"
+    body: "Grow our readership through Instagram, partnerships with other student groups, and getting the research in front of people who would want it."
 ---
 {% set latest = collections.research | reverse | first %}
+{% set recent = collections.research | reverse %}
+<div class="home-light">
 <section class="hero-home">
   <div class="container hero-grid">
     <div class="hero-copy">
@@ -40,13 +53,13 @@ pillars:
   </div>
 </section>
 
-<section>
+<section class="home-sec">
   <div class="container">
     <div class="section-head">
-      <p class="kicker">What we do</p>
-      <h2>Three ways we work</h2>
+      <p class="kicker rv">What we do</p>
+      <h2 class="split-words">Three ways into the unknown</h2>
     </div>
-    <div class="pillars">
+    <div class="pillars stagger">
       {% for p in pillars %}
       <div class="pillar">
         <h3>{{ p.title }}</h3>
@@ -58,9 +71,58 @@ pillars:
   </div>
 </section>
 
-<section>
+<section class="home-sec">
   <div class="container">
-    <blockquote>{{ quote }}</blockquote>
-    <p><a href="/about/">Learn more about our mission and how we work →</a></p>
+    <div class="section-head">
+      <p class="kicker rv">The archive</p>
+      <h2 class="split-words">Newest research</h2>
+    </div>
+    <div class="research-preview">
+      {% for a in recent | slice(0, 1) %}{% for item in a %}
+      <a class="rp-feature rv" href="{{ item.url }}">
+        <span class="rp-meta">{{ item.data.displayDate }} · {{ item.data.author }}</span>
+        <span class="rp-title">{{ item.data.title }}</span>
+      </a>
+      {% endfor %}{% endfor %}
+      <div class="rp-list stagger">
+        {% for item in recent %}{% if loop.index > 1 and loop.index < 5 %}
+        <a class="rp-item" href="{{ item.url }}">
+          <span class="rp-meta">{{ item.data.displayDate }}</span>
+          <span class="rp-name">{{ item.data.title }}</span>
+        </a>
+        {% endif %}{% endfor %}
+        <p class="rp-all"><a href="/research/">See all research →</a></p>
+      </div>
+    </div>
   </div>
 </section>
+</div>
+
+<div class="home-dark">
+<section class="home-sec home-quote">
+  <div class="container">
+    <p class="kicker rv">Our belief</p>
+    <blockquote class="split-words">{{ quote }}</blockquote>
+    <p class="rv"><a href="/about/">Learn more about our mission and how we work →</a></p>
+  </div>
+</section>
+
+<section class="home-sec home-cohort" id="cohort">
+  <div class="container cohort-grid">
+    <div>
+      <p class="kicker rv">The cohort</p>
+      <h2 class="split-words">{{ cohortTitle }}</h2>
+      <p class="rv">{{ cohortBody }}</p>
+      <p><a class="btn btn-primary pop" href="/get-involved/">Apply to the next cohort</a></p>
+    </div>
+    <div class="pill-stack stagger">
+      {% for r in cohortRoles %}
+      <div class="role pr{{ loop.index }}">
+        <button class="role-head" type="button" aria-expanded="false" aria-controls="role-{{ loop.index }}"><span>{{ r.name }}</span><i class="role-plus" aria-hidden="true"></i></button>
+        <div class="role-body" id="role-{{ loop.index }}" role="region"><div class="role-inner"><p>{{ r.body }}</p></div></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+</div>
