@@ -749,3 +749,24 @@ body [class*="eyebrow"]{text-transform:none !important;letter-spacing:.03em !imp
 
 /* ===== Plate label case (hero-redesign) ===== */
 body .plate-label{text-transform:none !important;letter-spacing:.02em !important;font-size:1.05rem !important}
+
+/* ===== Contact page (hero-redesign) ===== */
+.contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.contact-card{padding:30px 32px;border-radius:70px 28px 70px 28px;background:#D5E5D3;color:#2B3548}
+.contact-card.c2{background:#A7B6D6;border-radius:28px 70px 28px 70px}
+.contact-card.c3{background:#F1D5CE}
+.contact-card h3{margin:0 0 8px;font-size:1.15rem;color:#2B3548}
+.contact-card p{margin:0;color:#2B3548;overflow-wrap:anywhere}
+.contact-card a{color:#2B3548;font-weight:600;text-decoration:underline}
+.contact-form{padding:38px 40px;border-radius:44px;background:#FFF9F5;border:1.5px solid #A7B6D6;color:#2B3548}
+.contact-form h2{margin:0 0 18px;font-size:1.5rem}
+.contact-form label{display:block;margin:16px 0 6px;font-weight:600;font-size:.92rem}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;box-sizing:border-box;padding:13px 16px;border:1.5px solid #A7B6D6;border-radius:18px;background:#fff;color:#2B3548;font:inherit}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:#607F70;box-shadow:0 0 0 3px rgba(96,127,112,.25)}
+.contact-form .btn{margin-top:22px;cursor:pointer}
+.contact-form .hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+@media (max-width:820px){
+  .contact-grid{grid-template-columns:1fr}
+  .contact-form{padding:30px 24px}
+}
