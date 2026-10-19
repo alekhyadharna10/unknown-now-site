@@ -149,38 +149,21 @@
   }, { passive: true });
 })();
 
-/* ===== Inner banner (hero-redesign) ===== */
+/* ===== Inner hero doodle (hero-redesign) ===== */
 (function () {
   if (document.querySelector('.hx')) return;
-  var names = { 'about': 'About', 'research': 'Research', 'get-involved': 'Get Involved', 'whats-next': "What's Next", 'published-work': 'Published Work', 'contact': 'Contact' };
-  var segs = location.pathname.split('/').filter(Boolean);
-  if (!segs.length) return;
-  var root = document.querySelector('main') || document.body;
-  var h1 = root.querySelector('h1');
-  var nav = document.createElement('nav');
-  nav.className = 'crumbs';
-  nav.setAttribute('aria-label', 'Breadcrumb');
-  var box = document.createElement('div');
-  box.className = 'container';
-  var home = document.createElement('a');
-  home.href = '/'; home.textContent = 'Home';
-  box.appendChild(home);
-  var path = '';
-  segs.forEach(function (s, i) {
-    path += '/' + s;
-    var last = i === segs.length - 1;
-    var label = names[s] || (last && h1 ? h1.textContent.trim() : s.replace(/-/g, ' '));
-    if (label.length > 60) label = label.slice(0, 57) + '…';
-    var sep = document.createElement('span');
-    sep.setAttribute('aria-hidden', 'true'); sep.textContent = '›';
-    box.appendChild(sep);
-    var el = document.createElement(last ? 'b' : 'a');
-    if (!last) el.href = path + '/';
-    el.textContent = label;
-    box.appendChild(el);
-  });
-  nav.appendChild(box);
-  var hero = root.querySelector('.hero');
-  if (hero && hero.parentNode) hero.parentNode.insertBefore(nav, hero);
-  else root.insertBefore(nav, root.firstChild);
+  var host = document.querySelector('main .hero .container') || document.querySelector('main .hero');
+  if (!host) return;
+  var half = '<path class="sq" pathLength="1" d="M318 20 C 336 6, 354 6, 372 20 S 408 34, 426 20 S 462 6, 480 20 S 516 34, 534 20"/>' +
+    '<circle class="dt" cx="372" cy="20" r="2.4"/>' +
+    '<path class="dm" d="M426 14 L432 20 L426 26 L420 20 Z"/>' +
+    '<circle class="dt" cx="480" cy="20" r="2.4"/>' +
+    '<path class="dm e" d="M556 12 L564 20 L556 28 L548 20 Z"/>';
+  var svg = '<svg class="doodle-divider" viewBox="0 0 600 40" aria-hidden="true" focusable="false">' +
+    '<path class="dm c" d="M300 8 L312 20 L300 32 L288 20 Z"/>' +
+    '<g>' + half + '</g>' +
+    '<g transform="translate(600 0) scale(-1 1)">' + half + '</g></svg>';
+  host.insertAdjacentHTML('beforeend', svg);
+  var el = host.querySelector('.doodle-divider');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('in'); }); });
 })();
