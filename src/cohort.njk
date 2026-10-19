@@ -3,19 +3,16 @@ layout: base.njk
 permalink: /cohort/
 title: "Cohort 2026"
 description: "Meet the interns and mentors of The UnknownNow."
-heroEyebrow: "The cohort"
-heroTitle: "Meet the people behind the work"
-heroLede: "Interns are mentored directly by our founders and help run The UnknownNow day to day."
 ---
 <section class="hero">
   <div class="container">
-    <p class="eyebrow">{{ heroEyebrow }}</p>
-    <h1>{{ heroTitle }}</h1>
-    <p class="lede">{{ heroLede }}</p>
+    <p class="eyebrow">{{ cohort.heroEyebrow or "The cohort" }}</p>
+    <h1>{{ cohort.heroTitle or "Meet the people behind the work" }}</h1>
+    <p class="lede">{{ cohort.heroLede }}</p>
     <div class="subnav">
       <a href="#program">The program</a>
-      <a href="#interns">Interns</a>
-      <a href="#mentors">Mentors</a>
+      {% if cohort.interns and cohort.interns.length %}<a href="#interns">Interns</a>{% endif %}
+      {% if cohort.mentors and cohort.mentors.length %}<a href="#mentors">Mentors</a>{% endif %}
       <a href="/get-involved/">How to apply</a>
     </div>
   </div>
@@ -39,6 +36,7 @@ heroLede: "Interns are mentored directly by our founders and help run The Unknow
   </div>
 </section>
 
+{% if cohort.interns and cohort.interns.length %}
 <section id="interns">
   <div class="container">
     <div class="section-head">
@@ -49,7 +47,7 @@ heroLede: "Interns are mentored directly by our founders and help run The Unknow
     <div class="people-grid">
       {% for p in cohort.interns %}
       <div class="person">
-        {% if p.photo %}<img class="person-photo" src="{{ p.photo }}" alt="{{ p.name }}">{% else %}<span class="person-photo person-initial" aria-hidden="true">{{ p.name | replace("[", "") | first }}</span>{% endif %}
+        {% if p.photo %}<img class="person-photo" src="{{ p.photo }}" alt="{{ p.name }}">{% else %}<span class="person-photo person-initial" aria-hidden="true">{{ p.name | first }}</span>{% endif %}
         <h3>{{ p.name }}</h3>
         <p>{{ p.role }}</p>
       </div>
@@ -57,7 +55,9 @@ heroLede: "Interns are mentored directly by our founders and help run The Unknow
     </div>
   </div>
 </section>
+{% endif %}
 
+{% if cohort.mentors and cohort.mentors.length %}
 <section id="mentors">
   <div class="container">
     <div class="section-head">
@@ -68,7 +68,7 @@ heroLede: "Interns are mentored directly by our founders and help run The Unknow
     <div class="mentor-grid">
       {% for m in cohort.mentors %}
       <div class="mentor">
-        {% if m.photo %}<img class="mentor-photo" src="{{ m.photo }}" alt="{{ m.name }}">{% else %}<span class="mentor-photo person-initial" aria-hidden="true">{{ m.name | replace("[", "") | first }}</span>{% endif %}
+        {% if m.photo %}<img class="mentor-photo" src="{{ m.photo }}" alt="{{ m.name }}">{% else %}<span class="mentor-photo person-initial" aria-hidden="true">{{ m.name | first }}</span>{% endif %}
         <h3>{{ m.name }}</h3>
         <span class="tag tag-live">{{ m.role }}</span>
         <p>{{ m.bio }}</p>
@@ -77,3 +77,4 @@ heroLede: "Interns are mentored directly by our founders and help run The Unknow
     </div>
   </div>
 </section>
+{% endif %}

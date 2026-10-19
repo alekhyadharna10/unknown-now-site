@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-# After the first deploy, files saved through this CMS commit straight to
-# your GitHub repo, and Netlify rebuilds the site automatically.
+# Files saved through this editor commit straight to GitHub,
+# and Netlify rebuilds the site automatically.
 media_folder: "src/assets/images"
 public_folder: "/assets/images"
 
@@ -21,7 +21,10 @@ collections:
       - name: "home"
         label: "Home Page"
         file: "src/index.njk"
+        format: "frontmatter"
         fields:
+          - { label: "Browser Tab Title", name: "title", widget: "string" }
+          - { label: "Search Description", name: "description", widget: "text" }
           - { label: "Hero Eyebrow", name: "heroEyebrow", widget: "string" }
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
           - { label: "Hero Subtext", name: "heroLede", widget: "text" }
@@ -29,54 +32,121 @@ collections:
           - label: "Three Pillars"
             name: "pillars"
             widget: "list"
+            label_singular: "Pillar"
+            summary: "{{fields.title}}"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Body", name: "body", widget: "text" }
               - { label: "Link", name: "link", widget: "string" }
               - { label: "Link Text", name: "linkText", widget: "string" }
+          - { label: "Cohort Section Title", name: "cohortTitle", widget: "string" }
+          - { label: "Cohort Section Text", name: "cohortBody", widget: "text" }
+          - label: "Cohort Roles"
+            name: "cohortRoles"
+            widget: "list"
+            label_singular: "Role"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Role Name", name: "name", widget: "string" }
+              - { label: "What They Do", name: "body", widget: "text" }
 
       - name: "about"
         label: "About Page"
         file: "src/about.njk"
+        format: "frontmatter"
         fields:
+          - { label: "Hero Eyebrow", name: "heroEyebrow", widget: "string", required: false }
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
           - { label: "Hero Subtext", name: "heroLede", widget: "text" }
+          - { label: "Mission Label", name: "missionKicker", widget: "string", required: false }
           - { label: "Mission Heading", name: "missionHeading", widget: "string" }
           - { label: "Mission Paragraph 1", name: "missionBody", widget: "text" }
           - { label: "Mission Paragraph 2", name: "missionBody2", widget: "text" }
+          - { label: "Story Label", name: "storyKicker", widget: "string", required: false }
+          - { label: "Story Heading", name: "storyHeading", widget: "string", required: false }
+          - { label: "Story Text", name: "storyBody", widget: "text", required: false }
+          - { label: "Founders Label", name: "foundersKicker", widget: "string", required: false }
+          - { label: "Founders Heading", name: "foundersHeading", widget: "string", required: false }
           - label: "Founders"
             name: "founders"
             widget: "list"
+            label_singular: "Founder"
+            summary: "{{fields.name}}"
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Photo", name: "photo", widget: "image", required: false }
               - { label: "Bio", name: "bio", widget: "text" }
 
+      - name: "cohort"
+        label: "Cohort: Interns & Mentors"
+        file: "src/_data/cohort.json"
+        fields:
+          - { label: "Page Eyebrow", name: "heroEyebrow", widget: "string", required: false }
+          - { label: "Page Title", name: "heroTitle", widget: "string", required: false }
+          - { label: "Page Subtext", name: "heroLede", widget: "text", required: false }
+          - { label: "Program Label", name: "programKicker", widget: "string", required: false }
+          - { label: "Program Heading", name: "programHeading", widget: "string", required: false }
+          - label: "Program Points"
+            name: "programPoints"
+            widget: "list"
+            label_singular: "Point"
+            summary: "{{fields.title}}"
+            required: false
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "body", widget: "text" }
+          - { label: "Interns Label", name: "internsKicker", widget: "string", required: false }
+          - { label: "Interns Heading", name: "internsHeading", widget: "string", required: false }
+          - { label: "Interns Intro", name: "internsIntro", widget: "text", required: false }
+          - label: "Interns"
+            name: "interns"
+            widget: "list"
+            label_singular: "Intern"
+            summary: "{{fields.name}}"
+            required: false
+            hint: "Click 'Add Intern' for each person. Only add a photo if they have agreed to it."
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string", required: false }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+          - { label: "Mentors Label", name: "mentorsKicker", widget: "string", required: false }
+          - { label: "Mentors Heading", name: "mentorsHeading", widget: "string", required: false }
+          - { label: "Mentors Intro", name: "mentorsIntro", widget: "text", required: false }
+          - label: "Mentors"
+            name: "mentors"
+            widget: "list"
+            label_singular: "Mentor"
+            summary: "{{fields.name}}"
+            required: false
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string", required: false }
+              - { label: "Short Bio", name: "bio", widget: "text", required: false }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+
       - name: "get-involved"
         label: "Get Involved Page"
         file: "src/get-involved.njk"
+        format: "frontmatter"
         fields:
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
           - { label: "Hero Subtext", name: "heroLede", widget: "text" }
+          - { label: "How It Works Label", name: "howKicker", widget: "string", required: false }
+          - { label: "How It Works Heading", name: "howHeading", widget: "string", required: false }
           - { label: "How It Works Paragraph", name: "howBody", widget: "text" }
+          - { label: "Roles Label", name: "rolesKicker", widget: "string", required: false }
+          - { label: "Roles Heading", name: "rolesHeading", widget: "string", required: false }
           - label: "Intern Roles"
             name: "roles"
             widget: "list"
+            label_singular: "Role"
+            summary: "{{fields.title}}"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Body", name: "body", widget: "text" }
+          - { label: "How To Apply Label", name: "applyKicker", widget: "string", required: false }
+          - { label: "How To Apply Heading", name: "applyHeading", widget: "string", required: false }
           - { label: "How To Apply Paragraph", name: "applyBody", widget: "text" }
-
-      - name: "whats-next"
-        label: "What's Next Page"
-        file: "src/whats-next.njk"
-        fields:
-          - { label: "Hero Title", name: "heroTitle", widget: "string" }
-          - { label: "Hero Subtext", name: "heroLede", widget: "text" }
-          - { label: "Status Tag Label", name: "tagLabel", widget: "string" }
-          - { label: "Initiative Name", name: "heading", widget: "string" }
-          - { label: "Description", name: "body", widget: "text" }
-          - { label: "Follow-up Note", name: "body2", widget: "text" }
 
       - name: "published-work"
         label: "Published Work List"
@@ -85,6 +155,8 @@ collections:
           - label: "Items"
             name: "items"
             widget: "list"
+            label_singular: "Entry"
+            summary: "{{fields.name}}"
             fields:
               - label: "Status"
                 name: "tag"
@@ -93,8 +165,8 @@ collections:
               - { label: "Status Label", name: "tagLabel", widget: "string" }
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Description", name: "body", widget: "text" }
-              - { label: "Link URL", name: "link", widget: "string" }
-              - { label: "Link Text", name: "linkText", widget: "string" }
+              - { label: "Link URL", name: "link", widget: "string", required: false }
+              - { label: "Link Text", name: "linkText", widget: "string", required: false }
 
       - name: "contact"
         label: "Contact Info"
@@ -104,12 +176,15 @@ collections:
           - label: "Social Links"
             name: "social"
             widget: "list"
+            label_singular: "Link"
+            summary: "{{fields.name}}"
             fields:
               - { label: "Platform Name", name: "name", widget: "string" }
               - { label: "URL", name: "link", widget: "string" }
 
   - name: "research"
     label: "Research Articles"
+    label_singular: "Article"
     folder: "src/research"
     create: true
     slug: "{{slug}}"
