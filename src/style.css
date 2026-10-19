@@ -777,3 +777,6 @@ body .plate-label{text-transform:none !important;letter-spacing:.02em !important
 /* ===== Cohort polish (hero-redesign) ===== */
 .mentor .mentor-photo.person-initial{display:flex;align-items:center;justify-content:center}
 .person p:empty,.mentor p:empty,.mentor .tag:empty{display:none}
+
+/* ===== Mentor role chip (hero-redesign) ===== */
+body .mentor .tag{display:inline-block;padding:0;border-radius:0;background:transparent !important;color:#2B3548 !important;font-weight:600;font-size:.9rem}

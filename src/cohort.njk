@@ -57,7 +57,7 @@ description: "Meet the interns and mentors of The UnknownNow."
     <div class="people-grid">
       {% for item in internList %}
       <div class="person">
-        {% if item.data.photo %}<img class="person-photo" src="{{ item.data.photo }}" alt="{{ item.data.name }}">{% else %}<span class="person-photo person-initial" aria-hidden="true">{{ item.data.name | first }}</span>{% endif %}
+        {% if item.data.photo %}<img class="person-photo" src="{{ item.data.photo }}" alt="{{ item.data.name }}">{% else %}<span class="person-photo person-initial" aria-hidden="true">{{ item.data.name | replace("[", "") | first }}</span>{% endif %}
         <h3>{{ item.data.name }}</h3>
         <p>{{ item.data.role }}</p>
       </div>
@@ -78,7 +78,7 @@ description: "Meet the interns and mentors of The UnknownNow."
     <div class="mentor-grid">
       {% for item in mentorList %}
       <div class="mentor">
-        {% if item.data.photo %}<img class="mentor-photo" src="{{ item.data.photo }}" alt="{{ item.data.name }}">{% else %}<span class="mentor-photo person-initial" aria-hidden="true">{{ item.data.name | first }}</span>{% endif %}
+        {% if item.data.photo %}<img class="mentor-photo" src="{{ item.data.photo }}" alt="{{ item.data.name }}">{% else %}<span class="mentor-photo person-initial" aria-hidden="true">{{ item.data.name | replace("[", "") | first }}</span>{% endif %}
         <h3>{{ item.data.name }}</h3>
         <span class="tag tag-live">{{ item.data.role }}</span>
         <p>{{ item.data.bio }}</p>
