@@ -682,3 +682,19 @@ main .hero .container{position:relative;z-index:1}
   main .hero::before{animation:hx-morph 14s ease-in-out infinite}
   main .hero::after{animation:hx-morph2 11s ease-in-out infinite}
 }
+
+/* ===== Inner banner freckles (hero-redesign) ===== */
+main .hero::before,main .hero::after{inset:0;width:auto;height:auto;background-color:transparent;border-radius:0;opacity:1;animation:none;
+  -webkit-mask-image:radial-gradient(ellipse at center,transparent 22%,#000 78%);mask-image:radial-gradient(ellipse at center,transparent 22%,#000 78%)}
+main .hero::before{
+  background-image:radial-gradient(circle,#A7B6D6 0 4.5px,transparent 5px),radial-gradient(circle,rgba(57,70,94,.45) 0 2px,transparent 2.5px),radial-gradient(circle,#A7B6D6 0 2.8px,transparent 3.3px),radial-gradient(circle,rgba(57,70,94,.35) 0 1.6px,transparent 2.1px);
+  background-size:143px 119px,191px 167px,113px 131px,233px 211px;
+  background-position:12px 18px,70px 60px,40px 90px,150px 30px}
+main .hero::after{
+  background-image:radial-gradient(circle,#A7B6D6 0 7px,transparent 7.5px),radial-gradient(circle,rgba(57,70,94,.3) 0 3px,transparent 3.5px),radial-gradient(circle,#A7B6D6 0 3.6px,transparent 4.1px);
+  background-size:293px 241px,179px 223px,157px 197px;
+  background-position:90px 40px,20px 120px,130px 10px}
+@keyframes hx-freckles{from{background-position:12px 18px,70px 60px,40px 90px,150px 30px}to{background-position:52px 58px,30px 100px,80px 50px,110px 70px}}
+@media (prefers-reduced-motion:no-preference){
+  main .hero::before{animation:hx-freckles 40s ease-in-out infinite alternate}
+}
