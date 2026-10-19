@@ -698,3 +698,8 @@ main .hero::after{
 @media (prefers-reduced-motion:no-preference){
   main .hero::before{animation:hx-freckles 40s ease-in-out infinite alternate}
 }
+
+/* ===== Inner hero centered buttons (hero-redesign) ===== */
+main .hero :is(div,p):has(> .btn){display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;margin-left:auto;margin-right:auto}
+main .hero .container > .btn{display:table;margin:26px auto 0}
+main .hero .btn{margin-left:0;margin-right:0}
