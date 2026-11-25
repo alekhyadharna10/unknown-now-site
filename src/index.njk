@@ -62,15 +62,36 @@ cohortRoles:
       <p class="kicker rv">What we do</p>
       <h2 class="split-words">Three ways into the unknown</h2>
     </div>
-    <div class="pillars">
-      {% for p in pillars %}
-      <div class="blob {{ shapes[loop.index0] }} popb" style="--d:{{ loop.index0 * 150 }};--rot:{{ [-8, 6, -5][loop.index0] }}deg">
-        <h3>{{ p.title }}</h3>
-        <p>{{ p.body }}</p>
-        <a href="{{ p.link }}">{{ p.linkText }} →</a>
+    <div class="layers" data-a="">
+      <div class="layers-text">
+        {% for p in pillars %}
+        <div class="lrow" data-k="{{ loop.index0 }}" tabindex="0">
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.body }}</p>
+          <a href="{{ p.link }}">{{ p.linkText }} →</a>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
+      <svg class="layers-svg" viewBox="0 0 560 560" aria-hidden="true">
+        <g class="ly k2" data-k="2" style="--s:466.7px;--c:316px"><line x1="0" y1="0" x2="254" y2="0"/><path d="M260 0 L400 -70 L540 0 L400 70 Z"/></g>
+        <g class="ly k1" data-k="1" style="--s:280px;--c:280px"><line x1="0" y1="0" x2="254" y2="0"/><path d="M260 0 L400 -70 L540 0 L400 70 Z"/></g>
+        <g class="ly k0" data-k="0" style="--s:93.3px;--c:244px"><line x1="0" y1="0" x2="254" y2="0"/><path d="M260 0 L400 -70 L540 0 L400 70 Z"/></g>
+      </svg>
     </div>
+    <script>(function(){var L=document.querySelector('.layers');if(!L)return;
+    function set(k){L.setAttribute('data-a',k)}
+    L.querySelectorAll('.lrow,.ly').forEach(function(n){var k=n.getAttribute('data-k');
+    n.addEventListener('mouseenter',function(){set(k)});n.addEventListener('focus',function(){set(k)});
+    n.addEventListener('mouseleave',function(){set('')});n.addEventListener('blur',function(){set('')})});
+    function go(){L.classList.add('in')}
+    if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){go();return}
+    var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){go();io.disconnect()}},{threshold:.35});io.observe(L);
+    })();</script>
+    <!-- BELIEF START --><div class="belief">
+      <p class="bk">Our belief</p>
+      <p class="bq">{{ quote }}</p>
+      <a class="bl" href="/about/">Learn more about our mission and how we work →</a>
+    </div><!-- BELIEF END -->
   </div>
 </section>
 
@@ -80,27 +101,29 @@ cohortRoles:
       <p class="kicker rv">The archive</p>
       <h2 class="split-words">Newest research</h2>
     </div>
-    <div class="research-preview">
-      {% for item in recent %}{% if loop.first %}
-      <a class="blob bpe feat popb" style="--rot:-5deg" href="{{ item.url }}">
-        <span class="rp-meta">{{ item.data.displayDate }} · {{ item.data.author }}</span>
-        <span class="rp-title">{{ item.data.title }}</span>
-      </a>
-      {% endif %}{% endfor %}
-      <div class="cluster">
-        {% for item in recent %}{% if loop.index > 1 and loop.index < 5 %}
-        <a class="blob {{ minis[loop.index0 - 1] }} mini popb" style="--d:{{ (loop.index0 - 1) * 150 + 150 }};--rot:{{ [5, -5, 4][loop.index0 - 1] }}deg" href="{{ item.url }}">
-          <span class="rp-meta">{{ item.data.displayDate }}</span>
-          <span class="rp-name">{{ item.data.title }}</span>
+    <div class="rlist">
+      {% for item in recent %}{% if loop.index < 4 %}
+      <div class="rrow">
+        <a class="hexwrap" href="{{ item.url }}" aria-label="{{ item.data.title }}">
+          <span class="ha a1"></span><span class="ha a2"></span>
+          <span class="h1"></span><span class="h2"></span>
+          <img src="{{ item.data.image }}" alt="">
+          <i class="nd"></i><i class="nd"></i><i class="nd"></i><i class="nd"></i><i class="nd"></i><i class="nd"></i>
         </a>
-        {% endif %}{% endfor %}
-        <p class="rp-all rv"><a href="/research/">See all research →</a></p>
+        <div class="rtext">
+          <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+          <p class="lab">Authors</p><p class="val">{{ item.data.author }}</p>
+          <p class="lab">Published</p><p class="val">{{ item.data.displayDate }}</p>
+          <a class="go" href="/research/">Find out more →</a>
+        </div>
       </div>
+      {% endif %}{% endfor %}
+      <p class="rp-all rv"><a href="/research/">See all research →</a></p>
     </div>
   </div>
 </section>
 
-<div class="wave-wrap"><svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#39465E" d="M0 60 C 240 120 480 0 720 50 C 960 100 1200 10 1440 60 L1440 120 L0 120 Z"/></svg></div>
+<div class="wave-wrap"><svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#39465E" d="M0 60 C 120 20 240 20 360 60 C 480 100 600 100 720 60 C 840 20 960 20 1080 60 C 1200 100 1320 100 1440 60 L1440 120 L0 120 Z"/></svg></div>
 
 <div class="home-dark">
 <section class="home-sec home-quote">

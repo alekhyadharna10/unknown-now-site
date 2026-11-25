@@ -16,11 +16,11 @@ storyBody: "Through personal challenges with neurological issues, and a lack of 
 foundersKicker: "Founders"
 foundersHeading: "Who runs this"
 founders:
-  - name: "[Founder Name]"
-    photo: ""
+  - name: "Aamuktha Yalamanchili"
+    photo: "/assets/images/aamuktha-yalamanchili.png"
     bio: "[One or two sentences on their background and role — replace with real bio.]"
-  - name: "[Founder Name]"
-    photo: ""
+  - name: "Akshaya S. Ganji"
+    photo: "/assets/images/akshaya-ganji.jpeg"
     bio: "[One or two sentences on their background and role — replace with real bio.]"
 ---
 <section class="hero">
@@ -61,7 +61,7 @@ founders:
     <div class="founders">
       {% for f in founders %}
       <div class="card">
-        {% if f.photo %}<img class="founder-photo" src="{{ f.photo }}" alt="{{ f.name }}">{% endif %}
+        {% if f.photo %}<img class="fphoto founder-photo" src="{{ f.photo }}" alt="{{ f.name }}">{% endif %}
         <h3>{{ f.name }}</h3>
         <p>{{ f.bio }}</p>
       </div>
