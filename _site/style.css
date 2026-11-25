@@ -340,7 +340,7 @@ blockquote {
 }
 
 /* ===== Home hero: the "plate" composition ===== */
-:root { --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+:root { --mono: "Times New Roman", Times, serif; }
 
 .hero-home {
   padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 4.5rem);
@@ -361,7 +361,7 @@ blockquote {
   align-items: center;
   gap: 0.75rem;
   margin: 0;
-  font-family: var(--mono);
+  font-family: "Times New Roman", Times, serif;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -395,7 +395,7 @@ blockquote {
   font-size: 0.92rem;
 }
 .hero-latest span {
-  font-family: var(--mono);
+  font-family: "Times New Roman", Times, serif;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -423,7 +423,7 @@ blockquote {
 .plate .node { fill: var(--moss-deep); transition: fill 0.25s ease; }
 .plate .marker circle { fill: var(--parchment); stroke: var(--copper); stroke-width: 1; }
 .plate .marker text {
-  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  font-family: "Times New Roman", Times, serif; font-size: 10px; font-weight: 500;
   fill: var(--copper); text-anchor: middle; dominant-baseline: central;
 }
 .plate .hit { fill: transparent; }
@@ -439,7 +439,7 @@ blockquote {
 .plate-cap { margin-top: 1rem; }
 .plate-title {
   margin: 0 0 0.6rem;
-  font-family: var(--mono); font-size: 0.75rem;
+  font-family: "Times New Roman", Times, serif; font-size: 0.75rem;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage);
 }
 .plate-title span { color: var(--copper); margin-right: 0.4rem; }
@@ -451,7 +451,7 @@ blockquote {
   transition: color 0.2s ease;
 }
 .plate-index a:hover, .plate-index a:focus-visible, .plate-index a.is-active { color: var(--copper); }
-.plate-index .n { font-family: var(--mono); font-size: 0.75rem; color: var(--copper); }
+.plate-index .n { font-family: "Times New Roman", Times, serif; font-size: 0.75rem; color: var(--copper); }
 .plate-index small { display: block; font-size: 0.85rem; color: var(--sage); }
 
 @media (max-width: 860px) {
@@ -532,7 +532,7 @@ body:has(.hx) .site-footer a{color:#FFF9F5}
 .hx .pillars .blob:nth-child(2){margin-top:60px}.hx .pillars .blob:nth-child(3){margin-top:20px}
 .hx .research-preview{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;margin-top:50px;align-items:stretch}
 .hx .feat{min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;border-radius:200px 40px 40px 40px;padding:clamp(34px,5vw,56px)}
-.hx .rp-meta{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#2B3548}
+.hx .rp-meta{font-family:"Times New Roman", Times, serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#2B3548}
 .hx .feat .rp-title{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;margin-top:10px;display:block}
 .hx .cluster{display:grid;gap:18px;align-content:start}
 .hx .mini{border-radius:60px 24px 60px 24px;padding:22px 30px;display:block}
@@ -621,7 +621,7 @@ h1,h2,h3{color:#39465E}
 main section{background:transparent}
 .hero{background:transparent;color:#39465E}
 .hero h1{font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;color:#39465E}
-.eyebrow,.kicker{color:#4F6B5D;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.eyebrow,.kicker{color:#4F6B5D;font-family:"Times New Roman", Times, serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
 .lede{color:#39465E}
 .card,.pillar{border:0;box-shadow:none;padding:clamp(26px,3.5vw,40px);color:#2B3548;transition:transform .5s ease}
 .card h3,.card p,.pillar h3,.pillar p{color:#2B3548}
@@ -634,7 +634,7 @@ main section{background:transparent}
 .tag-live{background:#D5E5D3;color:#2B3548}
 .tag-progress{background:#F1D5CE;color:#2B3548}
 .founder-photo{border-radius:42% 58% 52% 48% / 50% 44% 56% 50%}
-.article-meta{color:#4F6B5D;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;font-size:.75rem}
+.article-meta{color:#4F6B5D;font-family:"Times New Roman", Times, serif;letter-spacing:.12em;text-transform:uppercase;font-size:.75rem}
 .article-body,.article-body p,.article-body li{color:#39465E}
 .article-body a,main p a{color:#4F6B5D;text-underline-offset:3px}
 .article-image,.article-head img{border-radius:28px 100px 28px 100px}
@@ -808,3 +808,19 @@ body .mentor .tag{display:inline-block;padding:0;border-radius:0;background:tran
   padding:0 !important;
 }
 /* FOUNDER CIRCLE END */
+
+/* LABEL FONT START */
+.plate-label::before,
+.plate-label::after{
+  display:none !important;
+  content:none !important;
+}
+.plate-label{ padding-left:0 !important; gap:0 !important; }
+/* LABEL FONT END */
+
+/* TNR ALL START */
+html, body, *, *::before, *::after,
+button, input, textarea, select, option {
+  font-family: "Times New Roman", Times, serif !important;
+}
+/* TNR ALL END */
