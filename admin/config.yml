@@ -126,6 +126,21 @@ collections:
           - { label: "How To Apply Label", name: "applyKicker", widget: "string", required: false }
           - { label: "How To Apply Heading", name: "applyHeading", widget: "string", required: false }
           - { label: "How To Apply Paragraph", name: "applyBody", widget: "text" }
+          - { label: "What Interns Get Label", name: "getsKicker", widget: "string", required: false }
+          - { label: "What Interns Get Heading", name: "getsHeading", widget: "string", required: false }
+          - label: "What Interns Get"
+            name: "gets"
+            widget: "list"
+            label_singular: "Benefit"
+            summary: "{{fields.title}}"
+            required: false
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "body", widget: "text" }
+          - { label: "Partners Label", name: "partnerKicker", widget: "string", required: false }
+          - { label: "Partners Heading", name: "partnerHeading", widget: "string", required: false }
+          - { label: "Partner Pitch", name: "partnerBody", widget: "text", hint: "Write a short pitch for future partners: who you want to work with, and why." }
+          - { label: "Partner Button Text", name: "partnerButton", widget: "string", required: false }
 
       - name: "published-work"
         label: "Published Work List"

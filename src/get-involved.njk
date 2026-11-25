@@ -1,4 +1,15 @@
 ---
+getsKicker: "What you get"
+getsHeading: "What interns get out of it"
+gets:
+  - title: "Direct mentorship"
+    body: "Interns are mentored directly by the founders."
+  - title: "Real responsibility"
+    body: "Once onboarded, interns help run the organization, not just learn from it."
+partnerKicker: "For partners"
+partnerHeading: "Work with us"
+partnerBody: "[Founders: write a short pitch for future partners here. Who would you like to work with, and what could you do together?]"
+partnerButton: "Get in touch"
 layout: base.njk
 permalink: /get-involved/
 title: "Get Involved"
@@ -65,6 +76,23 @@ applyBody: "Interested in joining the next cohort? Send us a short note through 
 <section>
   <div class="container">
     <div class="section-head">
+      <p class="kicker">{{ getsKicker }}</p>
+      <h2>{{ getsHeading }}</h2>
+    </div>
+    <div class="card-grid">
+      {% for g in gets %}
+      <div class="card">
+        <h3>{{ g.title }}</h3>
+        <p>{{ g.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
       <p class="kicker">{{ applyKicker }}</p>
       <h2>{{ applyHeading }}</h2>
     </div>
@@ -72,3 +100,15 @@ applyBody: "Interested in joining the next cohort? Send us a short note through 
     <a class="btn btn-secondary" href="/contact/">Get in touch →</a>
   </div>
 </section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">{{ partnerKicker }}</p>
+      <h2>{{ partnerHeading }}</h2>
+      <p>{{ partnerBody }}</p>
+    </div>
+    <p><a class="btn btn-primary" href="/contact/">{{ partnerButton }}</a></p>
+  </div>
+</section>
+

@@ -3,26 +3,18 @@
     {
       "tag": "live",
       "tagLabel": "Appeared in",
-      "name": "[Stanford Journal Name]",
-      "body": "[Placeholder] Our piece \"[Article Title]\" appeared in [Journal Name], a Stanford-affiliated publication.",
-      "link": "#",
-      "linkText": "Read it"
+      "name": "Intersect: The Stanford Journal of Science, Technology, and Society",
+      "body": "Our article \"The Relationship Between Brain Connectivity and New Learnt Skills Based On Cognitive Function Across Different Groups\" appeared in this undergraduate journal.",
+      "link": "https://ojs.stanford.edu/ojs/index.php/intersect/article/view/3393/1714",
+      "linkText": "Read the article"
     },
     {
       "tag": "live",
       "tagLabel": "Archived by",
       "name": "Research Archive of Rising Scholars",
-      "body": "[Placeholder] Our work is preserved in this preprint archive for early-career researchers.",
-      "link": "#",
-      "linkText": "View entry"
-    },
-    {
-      "tag": "live",
-      "tagLabel": "Appeared in",
-      "name": "AstraStem",
-      "body": "[Placeholder] Describe the actual relationship here — e.g. \"Our article was featured on AstraStem's blog\" — rather than calling it a partnership.",
-      "link": "#",
-      "linkText": "Read it"
+      "body": "Our preprint \"The Relationship Between Adolescents' Coping Mechanisms and Behavioral Brain Functions Under Academic Stress\" was posted to this open-access preprint archive on January 14, 2025. The archive does not peer-review preprints.",
+      "link": "https://research-archive.org/index.php/rars/preprint/view/2181/version/2331",
+      "linkText": "View the preprint"
     }
   ]
 }
