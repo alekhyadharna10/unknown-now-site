@@ -21,10 +21,13 @@ heroLede: "Through our Student-Led Research Journal, we turn complex research in
       {% for article in collections.research | reverse %}
       <article class="article-row">
         <div class="article-meta">{{ article.data.displayDate }}</div>
-        <div>
+        <div class="rl-body">
+          {% if article.data.image %}<a class="rl-thumb" href="{{ article.url }}" tabindex="-1" aria-hidden="true"><img src="{{ article.data.image }}" alt="" loading="lazy"></a>{% endif %}
+          <div class="rl-text">
           <h3><a href="{{ article.url }}">{{ article.data.title }}</a></h3>
           <p>{{ article.data.summary }}</p>
           <a class="read-link" href="{{ article.url }}">Read the full piece →</a>
+        </div>
         </div>
       </article>
       {% endfor %}
